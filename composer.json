@@ -1,0 +1,13 @@
+{
+    "name": "sensi/codger-sensi-project",
+    "description": "Full Sensi project",
+    "type": "library",
+    "license": "none",
+    "authors": [
+        {
+            "name": "Marijn Ophorst",
+            "email": "marijn@sensimedia.nl"
+        }
+    ],
+    "require": {}
+}
