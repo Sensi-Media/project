@@ -78,3 +78,9 @@ $container->register(function (&$env) {
     });
 });
 
+{% for repository in repositories %}
+$container->register(function (&${{ repository.variable }}Repository) {
+    ${{ repository.variable }}Repository = new {{ repository.namespace }}\Repository;
+});
+{% endfor %}
+
