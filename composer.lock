@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "09aa68c8e548bcc7565997c28a298faa",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "sensi/codger-monolyth-module",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
+                "reference": "d6dc3a51ba9c958d369bb337a5b5ae9f852e3e7e"
+            },
+            "require-dev": {
+                "codger/php": "^0.3.0",
+                "gentry/gentry": "^0.13.0",
+                "gentry/toast": "^0.1.0",
+                "sensi/codger-improse-view": "@dev",
+                "sensi/codger-model": "@dev",
+                "sensi/codger-repository": "@dev",
+                "toast/unit": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sensi\\CodgerMonolythModule\\": "./src"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [
+                    "Sensi\\CodgerMonolythModule\\Installer::installRecipies"
+                ],
+                "post-update-cmd": [
+                    "Sensi\\CodgerMonolythModule\\Installer::installRecipies"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@sensimedia.nl"
+                }
+            ],
+            "description": "Generate Monolyth standard Sensi modules",
+            "time": "2018-09-29T08:22:56+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "sensi/codger-monolyth-module": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
