@@ -54,16 +54,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.3.5",
+            "version": "0.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "469c35d6f3250cc062e8fa2623c8bd8fb9c8b647"
+                "reference": "37d5646d24a86f9cfed278b1eb5ca089133003ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/469c35d6f3250cc062e8fa2623c8bd8fb9c8b647",
-                "reference": "469c35d6f3250cc062e8fa2623c8bd8fb9c8b647",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/37d5646d24a86f9cfed278b1eb5ca089133003ca",
+                "reference": "37d5646d24a86f9cfed278b1eb5ca089133003ca",
                 "shasum": ""
             },
             "require": {
@@ -91,7 +91,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-09-27T05:58:17+00:00"
+            "time": "2018-09-29T13:00:50+00:00"
         },
         {
             "name": "sensi/codger-monolyth-module",
@@ -99,10 +99,11 @@
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "0af3add2c3ed353f8547ace92695bac7fda58d35"
+                "reference": "1322ac177dda14733b1a745ce1837b1fc992b797"
             },
             "require": {
-                "codger/php": "^0.3.0"
+                "codger/php": "^0.3.6",
+                "php": ">=7.2"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
@@ -136,7 +137,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-09-29T12:52:36+00:00"
+            "time": "2018-09-29T13:09:42+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
