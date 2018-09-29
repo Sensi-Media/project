@@ -54,20 +54,20 @@
         },
         {
             "name": "codger/php",
-            "version": "0.3.7",
+            "version": "0.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "3cdb88663796ccccdd8ffbcacbf66fe1b0d0171e"
+                "reference": "00608d76a6ac2aac2b0465c1619ee60cd858e1c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/3cdb88663796ccccdd8ffbcacbf66fe1b0d0171e",
-                "reference": "3cdb88663796ccccdd8ffbcacbf66fe1b0d0171e",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/00608d76a6ac2aac2b0465c1619ee60cd858e1c3",
+                "reference": "00608d76a6ac2aac2b0465c1619ee60cd858e1c3",
                 "shasum": ""
             },
             "require": {
-                "codger/generate": "^0.5.0"
+                "codger/generate": "^0.5.1"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
@@ -91,7 +91,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-09-29T15:10:09+00:00"
+            "time": "2018-09-29T15:33:20+00:00"
         },
         {
             "name": "sensi/codger-monolyth-module",
