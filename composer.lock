@@ -9,16 +9,16 @@
     "packages-dev": [
         {
             "name": "codger/generate",
-            "version": "0.5.0",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "fc547e99380296912151c5b7da69e7c407bd9614"
+                "reference": "364f59cbad10f7f19bdd6f5ad40638a33343d262"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/fc547e99380296912151c5b7da69e7c407bd9614",
-                "reference": "fc547e99380296912151c5b7da69e7c407bd9614",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/364f59cbad10f7f19bdd6f5ad40638a33343d262",
+                "reference": "364f59cbad10f7f19bdd6f5ad40638a33343d262",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-09-29T15:00:06+00:00"
+            "time": "2018-09-29T15:18:57+00:00"
         },
         {
             "name": "codger/php",
@@ -99,7 +99,7 @@
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "fc9e7004aedf251ee49d422aca4140b664a4c47a"
+                "reference": "f9553918e9a9866687e66f7a2d277fd0b08ae67a"
             },
             "require": {
                 "codger/php": "^0.3.6",
@@ -137,7 +137,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-09-29T15:15:43+00:00"
+            "time": "2018-09-29T15:25:54+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
