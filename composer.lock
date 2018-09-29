@@ -9,16 +9,16 @@
     "packages-dev": [
         {
             "name": "codger/generate",
-            "version": "0.4.4",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "03c7156e7c29e5f6c99c71f22d7ef2ffbdcd732b"
+                "reference": "fc547e99380296912151c5b7da69e7c407bd9614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/03c7156e7c29e5f6c99c71f22d7ef2ffbdcd732b",
-                "reference": "03c7156e7c29e5f6c99c71f22d7ef2ffbdcd732b",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/fc547e99380296912151c5b7da69e7c407bd9614",
+                "reference": "fc547e99380296912151c5b7da69e7c407bd9614",
                 "shasum": ""
             },
             "require": {
@@ -50,24 +50,24 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-09-29T13:44:54+00:00"
+            "time": "2018-09-29T15:00:06+00:00"
         },
         {
             "name": "codger/php",
-            "version": "0.3.6",
+            "version": "0.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "37d5646d24a86f9cfed278b1eb5ca089133003ca"
+                "reference": "3cdb88663796ccccdd8ffbcacbf66fe1b0d0171e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/37d5646d24a86f9cfed278b1eb5ca089133003ca",
-                "reference": "37d5646d24a86f9cfed278b1eb5ca089133003ca",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/3cdb88663796ccccdd8ffbcacbf66fe1b0d0171e",
+                "reference": "3cdb88663796ccccdd8ffbcacbf66fe1b0d0171e",
                 "shasum": ""
             },
             "require": {
-                "codger/generate": "^0.4.1"
+                "codger/generate": "^0.5.0"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
@@ -91,7 +91,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-09-29T13:00:50+00:00"
+            "time": "2018-09-29T15:10:09+00:00"
         },
         {
             "name": "sensi/codger-monolyth-module",
@@ -99,7 +99,7 @@
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "dc8c93a239ba3463fe1b346efb73d068970b6c7e"
+                "reference": "fc9e7004aedf251ee49d422aca4140b664a4c47a"
             },
             "require": {
                 "codger/php": "^0.3.6",
@@ -137,7 +137,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-09-29T13:46:59+00:00"
+            "time": "2018-09-29T15:15:43+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
