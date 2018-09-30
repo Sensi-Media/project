@@ -13,10 +13,10 @@
     "require-dev": {
         "sensi/codger-monolyth-module": "@dev"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "monolyth-module": {
             "type": "vcs",
             "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module"
         }
-    ]
+    }
 }
