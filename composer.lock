@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09aa68c8e548bcc7565997c28a298faa",
+    "content-hash": "b8b5d891d8752b798c2e2f1918c322c4",
     "packages": [],
     "packages-dev": [
         {
@@ -54,16 +54,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "529e185576fae73e721a3e15ca5497e97a850d4b"
+                "reference": "e49acd5b1cb07add9f942a662d1ce6c8ab002bce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/529e185576fae73e721a3e15ca5497e97a850d4b",
-                "reference": "529e185576fae73e721a3e15ca5497e97a850d4b",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/e49acd5b1cb07add9f942a662d1ce6c8ab002bce",
+                "reference": "e49acd5b1cb07add9f942a662d1ce6c8ab002bce",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-09-30T12:21:38+00:00"
+            "time": "2018-09-30T14:54:58+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -609,7 +609,7 @@
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "561469f615ab21283ff623aa9c3fee146ad7d646"
+                "reference": "da86656df7a0f9a874ec6f8884f7517293db3eda"
             },
             "require": {
                 "codger/php": "^0.4.1",
@@ -647,7 +647,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-09-30T12:34:44+00:00"
+            "time": "2018-09-30T14:59:59+00:00"
         },
         {
             "name": "symfony/console",
