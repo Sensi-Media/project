@@ -2,6 +2,7 @@
 
 use Codger\Generate\Recipe;
 use Codger\Generate\Language;
+use Codger\Php\Composer;
 
 /**
  * Kick off an entire Sensi project. Pass vendor, dbname, optional user
@@ -26,8 +27,13 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe = new class(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'))) extends Recipe {};
     $recipe->delegate('environment', dirname(__DIR__, 2));
     $recipe->delegate('index', dirname(__DIR__, 2));
-    $recipe->delegate('dependencies', dirname(__DIR__, 2));
-    $recipe->delegate('routing', dirname(__DIR__, 2));
+    $recipe->delegate('dependencies', dirname(__DIR__, 2), ...$modules);
+    $recipe->delegate('routing', dirname(__DIR__, 2), ...$modules);
+
+    // Add Sensi-specific project repos
+    $composer = new Composer;
+    $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/minimal');
+    $composer->addVcsRepository('fakr', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/fakr');
     return $recipe;
 };
 
