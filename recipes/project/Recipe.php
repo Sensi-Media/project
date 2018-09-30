@@ -29,7 +29,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('config', dirname(__DIR__, 2), $project);
     $recipe->delegate('environment', dirname(__DIR__, 2), $project, $database, $user, $password);
     $recipe->delegate('index', dirname(__DIR__, 2));
-    $recipe->delegate('dependencies', dirname(__DIR__, 2), ...$modules);
+    $recipe->delegate('dependencies', dirname(__DIR__, 2), $vendor, ...$modules);
     $recipe->delegate('routing', dirname(__DIR__, 2), ...$modules);
 
     // Add Sensi-specific project repos
