@@ -34,8 +34,23 @@ return function (string $vendor, string $database, string $user, string $passwor
 
     // Add Sensi-specific project repos
     $composer = new Composer;
+    $composer->addDependency('monolyth/monty');
+    $composer->addDependency('ornament/json');
+    $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
     $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/minimal');
+    $composer->addDependency('sensi/minimal');
     $composer->addVcsRepository('fakr', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/fakr');
+    $composer->addDependency('sensi/fakr');
+    $composer->addDependency('monomelodies/monki');
+    $composer->addDependency('twig/extensions');
+    $composer->addDependency("dbmover/$vendor", true);
+    $composer->addDependency('gentry/gentry', true);
+    $composer->addDependency('gentry/toast', true);
+    $composer->addDependency('toast/acceptance', true);
+    $composer->addDependency('toast/cache', true);
+    $composer->addDependency('toast/unit', true);
+    $composer->addVcsRepository('codein', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codein');
+    $composer->addDependency('sensi/codein', true);
     return $recipe;
 };
 
