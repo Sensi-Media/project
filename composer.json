@@ -16,6 +16,18 @@
         "monolyth-module": {
             "type": "vcs",
             "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module"
+        },
+        "repository": {
+            "type": "vcs",
+            "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-repository"
+        },
+        "model": {
+            "type": "vcs",
+            "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-model"
+        },
+        "view": {
+            "type": "vcs",
+            "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view"
         }
     }
 }
