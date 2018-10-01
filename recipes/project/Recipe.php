@@ -40,9 +40,9 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('ornament/json');
     $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
     $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/minimal');
-    $composer->addDependency('sensi/minimal');
+    $composer->addDependency('sensi/minimal=@dev');
     $composer->addVcsRepository('fakr', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/fakr');
-    $composer->addDependency('sensi/fakr');
+    $composer->addDependency('sensi/fakr=@dev');
     if ($this->askedFor('api')) {
         $composer->addDependency('monomelodies/monki');
     }
@@ -54,7 +54,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('toast/cache', true);
     $composer->addDependency('toast/unit', true);
     $composer->addVcsRepository('codein', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codein');
-    $composer->addDependency('sensi/codein', true);
+    $composer->addDependency('sensi/codein=@dev', true);
     return $recipe;
 };
 
