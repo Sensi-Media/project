@@ -33,6 +33,10 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('index', dirname(__DIR__, 2));
     $recipe->delegate('dependencies', dirname(__DIR__, 2), $vendor, ...$modules);
     $recipe->delegate('routing', dirname(__DIR__, 2), ...$modules);
+    foreach ($modules as $module) {
+        $recipe->delegate('module', dirname(__DIR__, 2).'/vendor/sensi/codger-monolyth-module', $module);
+    }
+    $recipe->delegate('view', dirname(__DIR__, 2).'/vendor/sensi/codger-improse-view', 'global');
 
     // Add Sensi-specific project repos
     $composer = new Composer;
