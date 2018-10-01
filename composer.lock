@@ -54,16 +54,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.4.3",
+            "version": "0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "57b620a45b4903a5d23d125da6e7c9ff182f9de8"
+                "reference": "31a480a86ecbc19f273795d9ff277cb9b30998bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/57b620a45b4903a5d23d125da6e7c9ff182f9de8",
-                "reference": "57b620a45b4903a5d23d125da6e7c9ff182f9de8",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/31a480a86ecbc19f273795d9ff277cb9b30998bc",
+                "reference": "31a480a86ecbc19f273795d9ff277cb9b30998bc",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-10-01T08:07:02+00:00"
+            "time": "2018-10-01T10:59:48+00:00"
         },
         {
             "name": "composer/ca-bundle",
