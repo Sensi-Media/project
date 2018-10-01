@@ -28,15 +28,15 @@ return function (string $vendor, string $database, string $user, string $passwor
         $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
     }
     $recipe = new class(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'))) extends Recipe {};
-    $recipe->delegate('config', dirname(__DIR__, 2), $project);
-    $recipe->delegate('environment', dirname(__DIR__, 2), $project, $database, $user, $password);
-    $recipe->delegate('index', dirname(__DIR__, 2));
-    $recipe->delegate('dependencies', dirname(__DIR__, 2), $vendor, ...$modules);
-    $recipe->delegate('routing', dirname(__DIR__, 2), ...$modules);
+    $recipe->delegate('config', null, $project);
+    $recipe->delegate('environment', null, $project, $database, $user, $password);
+    $recipe->delegate('index');
+    $recipe->delegate('dependencies', null, $vendor, ...$modules);
+    $recipe->delegate('routing', null, ...$modules);
     foreach ($modules as $module) {
-        $recipe->delegate('module', dirname(__DIR__, 2).'/vendor/sensi/codger-monolyth-module', $module);
+        $recipe->delegate('sensi/codger-monolyth-module/module', null, $module, null, $vendor);
     }
-    $recipe->delegate('view', dirname(__DIR__, 2).'/vendor/sensi/codger-improse-view', 'global', 'Minimal\View', null, 'Sensi\Minimal');
+    $recipe->delegate('sensi/codger-improse-view/view', null, 'global', 'Minimal\View', null, 'Sensi\Minimal');
 
     // Add Sensi-specific project repos
     $composer = new Composer;
