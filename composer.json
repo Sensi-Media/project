@@ -9,8 +9,7 @@
             "email": "marijn@sensimedia.nl"
         }
     ],
-    "require": {},
-    "require-dev": {
+    "require": {
         "sensi/codger-monolyth-module": "@dev"
     },
     "repositories": {
