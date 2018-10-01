@@ -4,21 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8b5d891d8752b798c2e2f1918c322c4",
-    "packages": [],
-    "packages-dev": [
+    "content-hash": "fd24486a849db5d0ae6b1012b48e345c",
+    "packages": [
         {
             "name": "codger/generate",
-            "version": "0.5.2",
+            "version": "0.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "2990a7178f990403c83ecc79373bbb020983c3e2"
+                "reference": "3fa1d75a78f4ac227bdb4400cda27bea9393e711"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/2990a7178f990403c83ecc79373bbb020983c3e2",
-                "reference": "2990a7178f990403c83ecc79373bbb020983c3e2",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/3fa1d75a78f4ac227bdb4400cda27bea9393e711",
+                "reference": "3fa1d75a78f4ac227bdb4400cda27bea9393e711",
                 "shasum": ""
             },
             "require": {
@@ -50,24 +49,24 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-10-01T11:35:56+00:00"
+            "time": "2018-10-01T11:46:35+00:00"
         },
         {
             "name": "codger/php",
-            "version": "0.4.5",
+            "version": "0.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "22ea70ecd3ad5a85065fb6b7c7d73e06cc40792b"
+                "reference": "b26ed04b043d7ab476fc4e3e32c9740747e9f7a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/22ea70ecd3ad5a85065fb6b7c7d73e06cc40792b",
-                "reference": "22ea70ecd3ad5a85065fb6b7c7d73e06cc40792b",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/b26ed04b043d7ab476fc4e3e32c9740747e9f7a4",
+                "reference": "b26ed04b043d7ab476fc4e3e32c9740747e9f7a4",
                 "shasum": ""
             },
             "require": {
-                "codger/generate": "^0.5.1",
+                "codger/generate": "^0.5.3",
                 "composer/composer": "^1.7"
             },
             "require-dev": {
@@ -92,7 +91,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-10-01T11:38:25+00:00"
+            "time": "2018-10-01T11:49:11+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -604,23 +603,82 @@
             "time": "2015-10-13T18:44:15+00:00"
         },
         {
-            "name": "sensi/codger-monolyth-module",
-            "version": "dev-master",
+            "name": "sensi/codger-improse-view",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "9d3fd8fd98bde7b4fd54c096cfcc87a1b4d748d1"
+                "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
+                "reference": "01fec82cc8992e3532f62558714d4d5868abfba3"
             },
             "require": {
-                "codger/php": "^0.4.1",
-                "php": ">=7.2"
+                "codger/php": "^0.4.6"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
                 "gentry/toast": "^0.1.0",
-                "sensi/codger-improse-view": "@dev",
-                "sensi/codger-model": "@dev",
-                "sensi/codger-repository": "@dev",
+                "toast/unit": "^1.3"
+            },
+            "type": "library",
+            "license": [
+                "none"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@sensimedia.nl"
+                }
+            ],
+            "description": "Generate Improse views",
+            "time": "2018-10-01T11:51:19+00:00"
+        },
+        {
+            "name": "sensi/codger-model",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-model",
+                "reference": "ea75586b55fe0ccddf2bc247c61661e5a96ef310"
+            },
+            "require": {
+                "codger/php": "^0.4.6"
+            },
+            "require-dev": {
+                "gentry/gentry": "^0.13.0",
+                "gentry/toast": "^0.1.0",
+                "ornament/core": "^0.11.10",
+                "toast/unit": "^1.3"
+            },
+            "type": "library",
+            "license": [
+                "none"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@sensimedia.nl"
+                }
+            ],
+            "description": "Generate models",
+            "time": "2018-10-01T11:59:31+00:00"
+        },
+        {
+            "name": "sensi/codger-monolyth-module",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
+                "reference": "ac0fc3f5d0f7f6711ea21f53214b85fd62385337"
+            },
+            "require": {
+                "codger/php": "^0.4.6",
+                "php": ">=7.2",
+                "sensi/codger-improse-view": "^1.0.0",
+                "sensi/codger-model": "^1.0.0",
+                "sensi/codger-repository": "^1.0.0"
+            },
+            "require-dev": {
+                "gentry/gentry": "^0.13.0",
+                "gentry/toast": "^0.1.0",
                 "toast/unit": "^1.3"
             },
             "type": "library",
@@ -647,7 +705,36 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-01T11:41:58+00:00"
+            "time": "2018-10-01T12:19:37+00:00"
+        },
+        {
+            "name": "sensi/codger-repository",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-repository",
+                "reference": "033ff97860b9fc2af5e816424c84af4db2bf06d7"
+            },
+            "require": {
+                "codger/php": "^0.4.6"
+            },
+            "require-dev": {
+                "gentry/gentry": "^0.13.0",
+                "gentry/toast": "^0.1.0",
+                "toast/unit": "^1.3"
+            },
+            "type": "library",
+            "license": [
+                "none"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@sensimedia.nl"
+                }
+            ],
+            "description": "Generate Sensi repositories",
+            "time": "2018-10-01T11:52:38+00:00"
         },
         {
             "name": "symfony/console",
@@ -1050,11 +1137,10 @@
             "time": "2018-07-13T07:18:09+00:00"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "sensi/codger-monolyth-module": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
