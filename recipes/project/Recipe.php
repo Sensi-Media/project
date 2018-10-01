@@ -7,8 +7,10 @@ use Codger\Php\Composer;
 /**
  * Kick off an entire Sensi project. Pass vendor, dbname, optional user
  * (defaults to dbname) and password to get started!
+ *
+ * Options: `api`
  */
-return function (string $vendor, string $database, string $user, string $password = null) : Recipe {
+return function (string $vendor, string $database, string $user, string $password = null, string ...$options) : Recipe {
     // Default assumption is username == dbname
     if (!isset($password)) {
         $password = $user;
@@ -41,7 +43,9 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('sensi/minimal');
     $composer->addVcsRepository('fakr', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/fakr');
     $composer->addDependency('sensi/fakr');
-    $composer->addDependency('monomelodies/monki');
+    if ($this->askedFor('api')) {
+        $composer->addDependency('monomelodies/monki');
+    }
     $composer->addDependency('twig/extensions');
     $composer->addDependency("dbmover/$vendor", true);
     $composer->addDependency('gentry/gentry', true);
