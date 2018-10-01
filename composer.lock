@@ -9,16 +9,16 @@
     "packages-dev": [
         {
             "name": "codger/generate",
-            "version": "0.5.1",
+            "version": "0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "364f59cbad10f7f19bdd6f5ad40638a33343d262"
+                "reference": "2990a7178f990403c83ecc79373bbb020983c3e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/364f59cbad10f7f19bdd6f5ad40638a33343d262",
-                "reference": "364f59cbad10f7f19bdd6f5ad40638a33343d262",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/2990a7178f990403c83ecc79373bbb020983c3e2",
+                "reference": "2990a7178f990403c83ecc79373bbb020983c3e2",
                 "shasum": ""
             },
             "require": {
@@ -50,20 +50,20 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-09-29T15:18:57+00:00"
+            "time": "2018-10-01T11:35:56+00:00"
         },
         {
             "name": "codger/php",
-            "version": "0.4.4",
+            "version": "0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "31a480a86ecbc19f273795d9ff277cb9b30998bc"
+                "reference": "22ea70ecd3ad5a85065fb6b7c7d73e06cc40792b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/31a480a86ecbc19f273795d9ff277cb9b30998bc",
-                "reference": "31a480a86ecbc19f273795d9ff277cb9b30998bc",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/22ea70ecd3ad5a85065fb6b7c7d73e06cc40792b",
+                "reference": "22ea70ecd3ad5a85065fb6b7c7d73e06cc40792b",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-10-01T10:59:48+00:00"
+            "time": "2018-10-01T11:38:25+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -609,7 +609,7 @@
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "6ed61f97626250d35e54bd76f64beca09d833c3d"
+                "reference": "9d3fd8fd98bde7b4fd54c096cfcc87a1b4d748d1"
             },
             "require": {
                 "codger/php": "^0.4.1",
@@ -647,7 +647,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-01T08:12:28+00:00"
+            "time": "2018-10-01T11:41:58+00:00"
         },
         {
             "name": "symfony/console",
