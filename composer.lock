@@ -664,11 +664,11 @@
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "d92ed5d1f9a7cbc3a6df3848797e5e11d47c3d08"
+                "reference": "87d3a53556de15b468ca16c1f993b2f49d22aed9"
             },
             "require": {
                 "codger/php": "^0.4.6",
@@ -693,7 +693,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-02T12:06:15+00:00"
+            "time": "2018-10-02T14:03:02+00:00"
         },
         {
             "name": "sensi/codger-repository",
