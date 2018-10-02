@@ -11,6 +11,15 @@ use Codger\Php\Composer;
  * Options: `api`
  */
 return function (string $vendor, string $database, string $user, string $password = null, string ...$options) : Recipe {
+    $recipe = new class(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'))) extends Recipe {};
+    if (!file_exists(getcwd().'/composer.json')) {
+        $recipe->error("Please run `composer init` first.\n");
+        return $recipe;
+    }
+    if (!file_exists(getcwd().'/package.json')) {
+        $recipe->error("Please run `npm init` first.\n");
+        return $recipe;
+    }
     // Default assumption is username == dbname
     if (!isset($password)) {
         $password = $user;
@@ -27,7 +36,6 @@ return function (string $vendor, string $database, string $user, string $passwor
     while (false !== ($table = $exists->fetchColumn())) {
         $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
     }
-    $recipe = new class(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'))) extends Recipe {};
     $recipe->delegate('config', null, $project);
     $recipe->delegate('environment', null, $project, $database, $user, $password);
     $recipe->delegate('index');
@@ -60,6 +68,38 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('sensi/codein=@dev', true);
     if ($this->askedFor('api')) {
         $composer->addDependency('monomelodies/monki');
+    }
+
+    // Add NPM packages
+    foreach ([
+        "browserify",
+        "grunt",
+        "grunt-browserify",
+        "grunt-contrib-sass",
+        "grunt-contrib-uglify",
+        "grunt-contrib-watch",
+        "babel-polyfill",
+        "babel-preset-es2015",
+        "babelify",
+        "grunt-angular-gettext",
+        "grunt-angular-templates",
+        "grunt-browserify",
+        "grunt-contrib-imagemin",
+        "grunt-contrib-sass",
+        "grunt-contrib-uglify",
+        "grunt-contrib-watch",
+        "grunt-shell",
+        "grunt-twig-gettext",
+        "jasmine-core",
+        "karma",
+        "karma-browserify",
+        "karma-jasmine",
+        "karma-phantomjs-launcher",
+        "load-grunt-config",
+        "load-grunt-tasks",
+        "time-grunt",
+    ] as $package) {
+        exec("yarn add -D $package");
     }
     return $recipe;
 };
