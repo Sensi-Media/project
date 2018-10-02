@@ -101,6 +101,18 @@ return function (string $vendor, string $database, string $user, string $passwor
     ] as $package) {
         exec("yarn add -D $package");
     }
+
+    file_put_contents(getcwd().'/Gruntfile.js', <<<EOT
+
+module.exports = function (grunt) {
+    require('time-grunt')(grunt);
+    require('load-grunt-tasks')(grunt);
+    require('load-grunt-config')(grunt);
+};
+
+EOT
+    );
+    $recipe->delegate('grunt/aliases');
     return $recipe;
 };
 
