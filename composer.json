@@ -29,5 +29,10 @@
             "type": "vcs",
             "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view"
         }
+    },
+    "require-dev": {
+        "toast/unit": "^1.3",
+        "gentry/gentry": "^0.13.0",
+        "gentry/toast": "^0.1.0"
     }
 }
