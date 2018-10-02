@@ -633,11 +633,11 @@
         },
         {
             "name": "sensi/codger-model",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-model",
-                "reference": "903c17d86a24f52d9ca2059a2f86b331677fb8c3"
+                "reference": "52e433d63a06e616548db7d854dcbbe97af3218f"
             },
             "require": {
                 "codger/php": "^0.4.7"
@@ -659,7 +659,7 @@
                 }
             ],
             "description": "Generate models",
-            "time": "2018-10-01T17:14:15+00:00"
+            "time": "2018-10-01T17:39:46+00:00"
         },
         {
             "name": "sensi/codger-monolyth-module",
