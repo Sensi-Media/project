@@ -59,7 +59,6 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('sensi/minimal=@dev');
     $composer->addDependency('sensi/fakr=@dev');
     $composer->addDependency('twig/extensions');
-    $composer->addDependency("dbmover/$vendor", true);
     $composer->addDependency('gentry/gentry', true);
     $composer->addDependency('gentry/toast', true);
     $composer->addDependency('toast/acceptance', true);
