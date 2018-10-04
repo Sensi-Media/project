@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "sensi/codger-monolyth-module": "^1.0.0"
+        "sensi/codger-monolyth-module": "^1.0.0",
+        "codger/javascript": "^0.1.1"
     },
     "repositories": {
         "monolyth-module": {
