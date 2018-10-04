@@ -3,6 +3,7 @@
 use Codger\Generate\Recipe;
 use Codger\Generate\Language;
 use Codger\Php\Composer;
+use Codger\Javascript\Npm;
 
 /**
  * Kick off an entire Sensi project. Pass vendor, dbname, optional user
@@ -40,7 +41,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
     $recipe->delegate('sensi/codger-sensi-project@index');
     $recipe->delegate('sensi/codger-sensi-project@dependencies', $vendor, ...$modules);
-    $recipe->delegate('sensi/codger-sensi-project@routing', ...$modules);
+    $recipe->delegate('sensi/codger-sensi-project@routing', $this->askedFor('api') ? 1 : 0, ...$modules);
     foreach ($modules as $module) {
         $recipe->delegate('sensi/codger-monolyth-module@module', $module, null, $vendor, $database, $user, $password);
     }
@@ -70,6 +71,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     }
 
     // Add NPM packages
+    $package = new Npm;
     foreach ([
         "browserify",
         "grunt",
@@ -98,7 +100,7 @@ return function (string $vendor, string $database, string $user, string $passwor
         "load-grunt-tasks",
         "time-grunt",
     ] as $package) {
-        exec("yarn add -D $package");
+        $this->addDependency($package, true);
     }
 
     file_put_contents(getcwd().'/Gruntfile.js', <<<EOT
