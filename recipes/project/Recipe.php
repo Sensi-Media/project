@@ -37,15 +37,15 @@ return function (string $vendor, string $database, string $user, string $passwor
     while (false !== ($table = $exists->fetchColumn())) {
         $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
     }
-    $recipe->delegate('config', null, $project);
-    $recipe->delegate('environment', null, $project, $database, $user, $password);
-    $recipe->delegate('index');
-    $recipe->delegate('dependencies', null, $vendor, ...$modules);
-    $recipe->delegate('routing', null, ...$modules);
+    $recipe->delegate('sensi/codger-sensi-project@config', $project);
+    $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
+    $recipe->delegate('sensi/codger-sensi-project@index');
+    $recipe->delegate('sensi/codger-sensi-project@dependencies', $vendor, ...$modules);
+    $recipe->delegate('sensi/codger-sensi-project@routing', ...$modules);
     foreach ($modules as $module) {
-        $recipe->delegate('sensi/codger-monolyth-module/module', null, $module, null, $vendor);
+        $recipe->delegate('sensi/codger-monolyth-module@module', $module, null, $vendor, $database, $user, $password);
     }
-    $recipe->delegate('sensi/codger-improse-view/view', null, 'global', 'Minimal\View', null, 'Sensi\Minimal');
+    $recipe->delegate('sensi/codger-improse-view@view', 'global', 'Minimal\View', null, 'Sensi\Minimal');
 
     // Add Sensi-specific project repos
     $composer = new Composer;
@@ -113,7 +113,7 @@ module.exports = function (grunt) {
 
 EOT
     );
-    $recipe->delegate('grunt/aliases');
+    $recipe->delegate('sensi/codger-sensi-project@grunt/aliases');
     return $recipe;
 };
 
