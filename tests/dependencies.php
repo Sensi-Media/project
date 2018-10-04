@@ -93,6 +93,27 @@ use Quibble\Query\Buildable;
         return preg_replace('@\.(css|js)$@', ".{\$versions[\$file]}.\\\\1", "/\$file");
     }));
 });
+\$container->register(function (&\$adapter) {
+    \$env = \$container->get('env');
+    \$port = \$env->prod ? ";port=6432" : '';
+    \$adapter = new class(
+        "dbname={\$env->db['name']}\$port",
+        \$env->db['user'],
+        \$env->db['pass'],
+        [
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_EMULATE_PREPARES => true,
+        ]
+    ) extends Adapter {
+        use Buildable;
+    };
+});
+if (!(\$env->cli || \$env->test)) {
+    \$session = new Session('');
+    \$session->registerHandler(new Handler\Pdo(\$container->get('adapter')));
+    session_start();
+}
 EOT
         ) !== false);
     };
