@@ -41,7 +41,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
     $recipe->delegate('sensi/codger-sensi-project@index');
     $recipe->delegate('sensi/codger-sensi-project@dependencies', $vendor, ...$modules);
-    $recipe->delegate('sensi/codger-sensi-project@routing', ...$modules);
+    $recipe->delegate('sensi/codger-sensi-project@routing', $this->askedFor('api') ? 1 : 0, ...$modules);
     foreach ($modules as $module) {
         $recipe->delegate('sensi/codger-monolyth-module@module', $module, null, $vendor, $database, $user, $password);
     }
