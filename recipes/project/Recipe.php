@@ -99,8 +99,8 @@ return function (string $vendor, string $database, string $user, string $passwor
         "load-grunt-config",
         "load-grunt-tasks",
         "time-grunt",
-    ] as $package) {
-        $this->addDependency($package, true);
+    ] as $name) {
+        $package->addDependency($name, true);
     }
 
     file_put_contents(getcwd().'/Gruntfile.js', <<<EOT
