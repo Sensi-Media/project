@@ -45,7 +45,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     foreach ($modules as $module) {
         $recipe->delegate('sensi/codger-monolyth-module@module', $module, null, $vendor, $database, $user, $password);
     }
-    $recipe->delegate('sensi/codger-improse-view@view', 'global', 'Minimal\View', null, 'Sensi\Minimal');
+    $recipe->delegate('sensi/codger-improse-view@view', 'global', 'Minimal\View', 'template.html.twig', 'Sensi\Minimal');
 
     // Add Sensi-specific project repos
     $composer = new Composer;
