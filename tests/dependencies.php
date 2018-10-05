@@ -9,12 +9,12 @@ $recipe = include 'recipes/dependencies/Recipe.php';
 return function () use ($recipe) : Generator {
     /** generates valid dependencies */
     yield function () use ($recipe) {
-        $result = $recipe('Foo')->render();
+        $result = $recipe('pgsql', 'Foo', 'Bar')->render();
         assert(strpos($result, <<<EOT
 use Monolyth\Disclosure\Container;
 use Monolyth\Envy\Environment;
 use Monolyth\Cesession\{ Session, Handler };
-use Quibble\\\Adapter;
+use Quibble\Postgresql\Adapter;
 use Quibble\Query\Buildable;
 
 \$container = new Container;
@@ -110,10 +110,14 @@ use Quibble\Query\Buildable;
     };
 });
 if (!(\$env->cli || \$env->test)) {
-    \$session = new Session('');
+    \$session = new Session('Foo');
     \$session->registerHandler(new Handler\Pdo(\$container->get('adapter')));
     session_start();
 }
+
+\$container->register(function (&\$barRepository) {
+    \$barRepository = new Bar\Repository;
+});
 EOT
         ) !== false);
     };
