@@ -705,11 +705,11 @@
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "87d3a53556de15b468ca16c1f993b2f49d22aed9"
+                "reference": "91dd3458b083f40db57bf0f074669e844b72b054"
             },
             "require": {
                 "codger/php": "^0.4.6",
@@ -734,15 +734,15 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-02T14:03:02+00:00"
+            "time": "2018-10-05T11:01:08+00:00"
         },
         {
             "name": "sensi/codger-repository",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-repository",
-                "reference": "e5898f41a44aa9a6240605fe226a0731a00d092b"
+                "reference": "8114958d77a2d3d8883915b3fcdf50063877bb5b"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -763,7 +763,7 @@
                 }
             ],
             "description": "Generate Sensi repositories",
-            "time": "2018-10-04T08:57:01+00:00"
+            "time": "2018-10-05T11:00:07+00:00"
         },
         {
             "name": "symfony/console",
