@@ -82,7 +82,7 @@ $container->register(function (&$twig) use ($container, $env) {
         return preg_replace('@\.(css|js)$@', ".{$versions[$file]}.\\1", "/$file");
     }));
 });
-$container->register(function (&$adapter) {
+$container->register(function (&$adapter) use ($container) {
     $env = $container->get('env');
     $port = $env->prod ? ";port=6432" : '';
     $adapter = new class(
