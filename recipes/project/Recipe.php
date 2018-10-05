@@ -71,7 +71,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     if ($this->askedFor('api')) {
         $composer->addDependency('monomelodies/monki');
         $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/api');
-        $composer->addDependency('sensi/api');
+        $composer->addDependency('sensi/api=@dev');
     }
 
     // Add NPM packages
