@@ -41,7 +41,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
     $recipe->delegate('sensi/codger-sensi-project@index');
     $recipe->delegate('sensi/codger-sensi-project@dependencies', $vendor, $project, ...$modules);
-    $recipe->delegate('sensi/codger-sensi-project@routing', $this->askedFor('api') ? 1 : 0, ...$modules);
+    $recipe->delegate('sensi/codger-sensi-project@routing', ...$modules);
     foreach ($modules as $module) {
         $recipe->delegate('sensi/codger-monolyth-module@module', $module, null, $vendor, $database, $user, $password);
     }
@@ -69,6 +69,8 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('sensi/codein=@dev', true);
     if ($this->askedFor('api')) {
         $composer->addDependency('monomelodies/monki');
+        $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/minimal');
+        $composer->addDependency('sensi/api');
     }
 
     // Add NPM packages
