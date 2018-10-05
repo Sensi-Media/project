@@ -37,6 +37,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     while (false !== ($table = $exists->fetchColumn())) {
         $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
     }
+    asort($modules);
     $recipe->delegate('sensi/codger-sensi-project@config', $project);
     $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
     $recipe->delegate('sensi/codger-sensi-project@index');
