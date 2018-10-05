@@ -70,7 +70,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $composer->addDependency('sensi/codein=@dev', true);
     if ($this->askedFor('api')) {
         $composer->addDependency('monomelodies/monki');
-        $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/minimal');
+        $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/api');
         $composer->addDependency('sensi/api');
     }
 
