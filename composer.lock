@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "codger/generate",
-            "version": "0.6.5",
+            "version": "0.6.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "104564fdf801d313d5c9de1901ef6ee4ba0bdcdf"
+                "reference": "d68afeaac4a407a4aa9872e22d6e1b55d7962c9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/104564fdf801d313d5c9de1901ef6ee4ba0bdcdf",
-                "reference": "104564fdf801d313d5c9de1901ef6ee4ba0bdcdf",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/d68afeaac4a407a4aa9872e22d6e1b55d7962c9b",
+                "reference": "d68afeaac4a407a4aa9872e22d6e1b55d7962c9b",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-10-04T15:07:42+00:00"
+            "time": "2018-10-05T14:46:23+00:00"
         },
         {
             "name": "codger/javascript",
@@ -95,16 +95,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.4.13",
+            "version": "0.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "8b757c1a44ce4b2958f5b1de868ad7e97297e1d0"
+                "reference": "abdf746ea3e5610e7ccaad1125e9edecde2b971f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/8b757c1a44ce4b2958f5b1de868ad7e97297e1d0",
-                "reference": "8b757c1a44ce4b2958f5b1de868ad7e97297e1d0",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/abdf746ea3e5610e7ccaad1125e9edecde2b971f",
+                "reference": "abdf746ea3e5610e7ccaad1125e9edecde2b971f",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +133,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-10-05T09:42:55+00:00"
+            "time": "2018-10-05T14:51:23+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -646,11 +646,11 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.7",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "35554cb3619fd2d90a0d3726df88daa5f65c935f"
+                "reference": "ade488c850ca78ba5c37c1bab3c881327bb9273d"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -671,15 +671,15 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-05T09:46:12+00:00"
+            "time": "2018-10-05T14:53:50+00:00"
         },
         {
             "name": "sensi/codger-model",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-model",
-                "reference": "191fd24a9f6bf3d1650cb8f4dff57fb8c71f5504"
+                "reference": "26d5f6f52afca33ed80fd1ec55924300ddadc1fc"
             },
             "require": {
                 "codger/php": "^0.4.7"
@@ -701,15 +701,15 @@
                 }
             ],
             "description": "Generate models",
-            "time": "2018-10-02T11:57:01+00:00"
+            "time": "2018-10-05T14:55:19+00:00"
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "5502b73ee8250b9c447d1b316f821f8ac5d24466"
+                "reference": "18b5618c71302d0fa7fe0af9cc2b13e27552df7d"
             },
             "require": {
                 "codger/php": "^0.4.6",
@@ -734,15 +734,15 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-05T11:15:19+00:00"
+            "time": "2018-10-05T14:57:00+00:00"
         },
         {
             "name": "sensi/codger-repository",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-repository",
-                "reference": "20dd143f213f07794dc6863cc1ca2f7472849701"
+                "reference": "e789bb33c98e5209d289827dc990b3eb60665eef"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -763,7 +763,7 @@
                 }
             ],
             "description": "Generate Sensi repositories",
-            "time": "2018-10-05T11:14:32+00:00"
+            "time": "2018-10-05T14:55:56+00:00"
         },
         {
             "name": "symfony/console",
@@ -1431,16 +1431,16 @@
         },
         {
             "name": "toast/unit",
-            "version": "1.3.6",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/toast-php/unit.git",
-                "reference": "542affd107c613225c8f0fe101518be785b9675a"
+                "reference": "1c002347ad21e3b92e35282579c6574ca866e449"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/toast-php/unit/zipball/542affd107c613225c8f0fe101518be785b9675a",
-                "reference": "542affd107c613225c8f0fe101518be785b9675a",
+                "url": "https://api.github.com/repos/toast-php/unit/zipball/1c002347ad21e3b92e35282579c6574ca866e449",
+                "reference": "1c002347ad21e3b92e35282579c6574ca866e449",
                 "shasum": ""
             },
             "require": {
@@ -1468,7 +1468,7 @@
                 }
             ],
             "description": "Super-simple unit testing for PHP7",
-            "time": "2018-07-19T13:53:46+00:00"
+            "time": "2018-08-03T12:39:46+00:00"
         },
         {
             "name": "zeptech/annotations",
