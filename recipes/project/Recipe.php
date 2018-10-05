@@ -37,6 +37,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     while (false !== ($table = $exists->fetchColumn())) {
         $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
     }
+    asort($modules);
     $recipe->delegate('sensi/codger-sensi-project@config', $project);
     $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
     $recipe->delegate('sensi/codger-sensi-project@index');
@@ -45,7 +46,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     foreach ($modules as $module) {
         $recipe->delegate('sensi/codger-monolyth-module@module', $module, null, $vendor, $database, $user, $password);
     }
-    $recipe->delegate('sensi/codger-improse-view@view', 'global', 'Minimal\View', 'template.html.twig', 'Sensi\Minimal');
+    $recipe->delegate('sensi/codger-improse-view@view', 'global', 'Minimal\View', 'template.html.twig', 'Sensi\Minimal', 'base');
     $recipe->delegate('sensi/codger-improse-view@view', 'Home', '\View', 'Home/template.html.twig');
 
     // Add Sensi-specific project repos

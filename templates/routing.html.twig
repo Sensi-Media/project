@@ -9,24 +9,23 @@ use Monomelodies\Monki\{ Api, Handler\Crud };
 $container = new Container;
 $env = $container->get('env');
 $router = new Router($env->host);
-$user = $container->get('user');
-$router->when('/', null, function ($router) {
+$router->when('/', null, function (Router $router) : void {
     $router->when('/')->get(Home::class);
 {% for module in modules %}
-    $router->when('/{{ module | lower }}/', null, function ($router) {
-        $router->when("/(?'id'\d+)/", '{{ module | lower }}-details')
-            ->get(function (int $id) {
+    $router->when('/{{ module | normalize }}/', null, function (Router $router) : void {
+        $router->when("/(?'id'\d+)/", '{{ module | normalize }}-details')
+            ->get(function (int $id) : View {
                 return new {{ module }}\Detail\View($id);
             });
-        $router->when('/', '{{ module | lower }}-list')
+        $router->when('/', '{{ module | normalize }}-list')
             ->get({{ module }}\View::class);
     });
 {% endfor %}
 {% if api %}
-    $router->when('/api/', null, function ($router) {
+    $router->when('/api/', null, function (Router $router) : void {
         $monki = new Api($router);
 {% for module in modules %}
-        $monki->crud('/{{ module | lower }}/', new ApiHandler('{{ module | lower }}'));
+        $monki->crud('/{{ module | normalize }}/', new ApiHandler('{{ module | normalize | fordb }}'));
 {% endfor %}
     });
 {% endif %}

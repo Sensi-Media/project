@@ -9,11 +9,11 @@ use Quibble\Query\Buildable;
 $container = new Container;
 
 // Default routing
-$container->register(function (&$router) {
+$container->register(function (&$router) : void {
     $router = require __DIR__.'/routing.php';
 });
-$container->register(function (&$env) {
-    $env = new Environment(dirname(__DIR__).'/Envy.json', function ($env) {
+$container->register(function (&$env) : void {
+    $env = new Environment(dirname(__DIR__).'/Envy.json', function ($env) : array {
         $envs = ['ft'];
         if (isset($_SERVER['HTTP_HOST'])) {
             $envs[] = 'web';
@@ -51,7 +51,7 @@ $container->register(function (&$env) {
 
 $env = $container->get('env');
 // Default Twig environment
-$container->register(function (&$twig) use ($container, $env) {
+$container->register(function (&$twig) use ($container, $env) : void {
     $router = $container->get('router');
     $loader = new Twig_Loader_Filesystem(__DIR__);
     $e = $container->get('env');
@@ -82,7 +82,7 @@ $container->register(function (&$twig) use ($container, $env) {
         return preg_replace('@\.(css|js)$@', ".{$versions[$file]}.\\1", "/$file");
     }));
 });
-$container->register(function (&$adapter) {
+$container->register(function (&$adapter) use ($container) : void {
     $env = $container->get('env');
     $port = $env->prod ? ";port=6432" : '';
     $adapter = new class(
@@ -105,7 +105,7 @@ if (!($env->cli || $env->test)) {
 }
 
 {% for repository in repositories %}
-$container->register(function (&${{ repository.variable }}Repository) {
+$container->register(function (&${{ repository.variable }}Repository) : void {
     ${{ repository.variable }}Repository = new {{ repository.namespace }}\Repository;
 });
 {% endfor %}
