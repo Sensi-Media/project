@@ -9,7 +9,6 @@ use Monomelodies\Monki\{ Api, Handler\Crud };
 $container = new Container;
 $env = $container->get('env');
 $router = new Router($env->host);
-$user = $container->get('user');
 $router->when('/', null, function (Router $router) : void {
     $router->when('/')->get(Home::class);
 {% for module in modules %}
