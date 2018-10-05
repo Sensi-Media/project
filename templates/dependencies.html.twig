@@ -105,7 +105,7 @@ if (!($env->cli || $env->test)) {
 }
 
 {% for repository in repositories %}
-$container->register(function (&${{ repository.variable }}Repository) {
+$container->register(function (&${{ repository.variable }}Repository) : void {
     ${{ repository.variable }}Repository = new {{ repository.namespace }}\Repository;
 });
 {% endfor %}
