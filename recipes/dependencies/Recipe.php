@@ -3,7 +3,7 @@
 use Codger\Generate\Recipe;
 use Codger\Generate\Language;
 
-return function (string $vendor, string ...$repositories) : Recipe {
+return function (string $vendor, string $session, string ...$repositories) : Recipe {
     $recipe = new class(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'))) extends Recipe {
         protected $template = 'dependencies.html.twig';
     };
@@ -19,6 +19,7 @@ return function (string $vendor, string ...$repositories) : Recipe {
         ];
     });
     $recipe->set('repositories', $repositories);
+    $recipe->set('session', $session);
     return $recipe;
 };
 

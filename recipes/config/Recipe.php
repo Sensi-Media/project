@@ -7,6 +7,7 @@ return function (string $project) : Recipe {
         protected $template = 'config.html.twig';
     };
     $recipe->output('ServerConfig.json');
+    $recipe->set('project', $project);
     return $recipe;
 };
 

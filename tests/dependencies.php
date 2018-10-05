@@ -59,6 +59,61 @@ use Quibble\Query\Buildable;
         return \$envs;
     });
 });
+
+\$env = \$container->get('env');
+// Default Twig environment
+\$container->register(function (&\$twig) use (\$container, \$env) {
+    \$router = \$container->get('router');
+    \$loader = new Twig_Loader_Filesystem(__DIR__);
+    \$e = \$container->get('env');
+    \$twig = new Twig_Environment(\$loader, [
+        'cache' => dirname(__DIR__).'/.twig-cache/'.get_current_user(),
+        'auto_reload' => \$e->dev,
+        'debug' => \$e->dev,
+    ]);
+    \$url = function (\$name, array \$args = []) use (\$router, \$e) {
+        \$args['language'] = \$args['language'] ?? \$e->language;
+        try {
+            return \$router->generate(\$name, \$args)
+                .(isset(\$_GET['if']) ? '?if' : '');
+        } catch (DomainException \$e) {
+            return \$e->getMessage(); 
+        }
+    };
+    \$twig->addFunction(new Twig_SimpleFunction('url', \$url));
+    \$twig->addFunction(new Twig_SimpleFunction('version', function (\$file) use (\$env) {
+        if (!\$env->prod) {
+            return \$file;
+        }
+        static \$versions;
+        if (!isset(\$versions)) {
+            \$versions = json_decode(file_get_contents(dirname(__DIR__).'/Versions.json'), true);
+        }
+        \$file = preg_replace('@^/@', '', \$file);
+        return preg_replace('@\.(css|js)$@', ".{\$versions[\$file]}.\\\\1", "/\$file");
+    }));
+});
+\$container->register(function (&\$adapter) {
+    \$env = \$container->get('env');
+    \$port = \$env->prod ? ";port=6432" : '';
+    \$adapter = new class(
+        "dbname={\$env->db['name']}\$port",
+        \$env->db['user'],
+        \$env->db['pass'],
+        [
+            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_EMULATE_PREPARES => true,
+        ]
+    ) extends Adapter {
+        use Buildable;
+    };
+});
+if (!(\$env->cli || \$env->test)) {
+    \$session = new Session('');
+    \$session->registerHandler(new Handler\Pdo(\$container->get('adapter')));
+    session_start();
+}
 EOT
         ) !== false);
     };
