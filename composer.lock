@@ -95,16 +95,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.4.12",
+            "version": "0.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "445b818a16916b25d50a0066e0ca32876163c4a4"
+                "reference": "8b757c1a44ce4b2958f5b1de868ad7e97297e1d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/445b818a16916b25d50a0066e0ca32876163c4a4",
-                "reference": "445b818a16916b25d50a0066e0ca32876163c4a4",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/8b757c1a44ce4b2958f5b1de868ad7e97297e1d0",
+                "reference": "8b757c1a44ce4b2958f5b1de868ad7e97297e1d0",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +133,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-10-05T08:59:12+00:00"
+            "time": "2018-10-05T09:42:55+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -646,11 +646,11 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "06cb238db988456b0a572426f7c2640e73b122f8"
+                "reference": "35554cb3619fd2d90a0d3726df88daa5f65c935f"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -671,7 +671,7 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-05T09:18:07+00:00"
+            "time": "2018-10-05T09:46:12+00:00"
         },
         {
             "name": "sensi/codger-model",
