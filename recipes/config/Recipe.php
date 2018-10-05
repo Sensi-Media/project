@@ -8,6 +8,7 @@ return function (string $project) : Recipe {
     };
     $recipe->set('project', $project);
     $recipe->output('ServerConfig.json');
+    $recipe->set('project', $project);
     return $recipe;
 };
 
