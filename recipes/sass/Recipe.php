@@ -8,7 +8,7 @@ return function (...$modules) : Recipe {
     $recipe = new class($twig) extends Recipe {
         protected $template = 'sass.html.twig';
     };
-    array_walk($module, function (&$module) {
+    array_walk($modules, function (&$module) {
         $module = Language::convert($module, Language::TYPE_PATH);
     });
     $recipe->set('modules', $modules);
