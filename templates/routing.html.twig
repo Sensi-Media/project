@@ -4,7 +4,7 @@ use Monolyth\Reroute\Router;
 use Monolyth\Disclosure\Container;
 {% if api %}
 use Monomelodies\Monki\{ Api, Handler\Crud };
-use Sensi\Api;
+use Sensi\Api as ApiHandler;
 {% endif %}
 
 $container = new Container;
@@ -26,7 +26,7 @@ $router->when('/', null, function (Router $router) : void {
     $router->when('/api/', null, function (Router $router) : void {
         $monki = new Api($router);
 {% for module in modules %}
-        $monki->crud('/{{ module | normalize }}/', new Api\Handler('{{ module | normalize | fordb }}'));
+        $monki->crud('/{{ module | normalize }}/', new ApiHandler('{{ module | normalize | fordb }}'));
 {% endfor %}
     });
 {% endif %}
