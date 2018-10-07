@@ -646,11 +646,11 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.10",
+            "version": "1.1.11",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "3bb5a51c1ca80a04b05e5f44bf9a7965476154e0"
+                "reference": "76271b47a5b8c08e1a8bf1271dd3809a2e327c5a"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -671,7 +671,7 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-07T11:25:06+00:00"
+            "time": "2018-10-07T11:34:56+00:00"
         },
         {
             "name": "sensi/codger-model",
