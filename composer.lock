@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "codger/generate",
-            "version": "0.6.9",
+            "version": "0.6.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "0f30e2ae0367d1d7c189cebc6d68524986a6aa78"
+                "reference": "20d5c02c5012ef83ee08692bd23fa9f18c7af7d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/0f30e2ae0367d1d7c189cebc6d68524986a6aa78",
-                "reference": "0f30e2ae0367d1d7c189cebc6d68524986a6aa78",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/20d5c02c5012ef83ee08692bd23fa9f18c7af7d2",
+                "reference": "20d5c02c5012ef83ee08692bd23fa9f18c7af7d2",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-10-07T07:05:25+00:00"
+            "time": "2018-10-07T15:44:00+00:00"
         },
         {
             "name": "codger/javascript",
@@ -705,11 +705,11 @@
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.0.8",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "18b5618c71302d0fa7fe0af9cc2b13e27552df7d"
+                "reference": "afc8512c838e2a3533d0e009b25e138970332bb9"
             },
             "require": {
                 "codger/php": "^0.4.6",
@@ -734,7 +734,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-05T14:57:00+00:00"
+            "time": "2018-10-07T15:54:27+00:00"
         },
         {
             "name": "sensi/codger-repository",
