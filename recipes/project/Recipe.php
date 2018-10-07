@@ -110,18 +110,9 @@ return function (string $vendor, string $database, string $user, string $passwor
     ] as $name) {
         $package->addDependency($name, true);
     }
-
-    file_put_contents(getcwd().'/Gruntfile.js', <<<EOT
-
-module.exports = function (grunt) {
-    require('time-grunt')(grunt);
-    require('load-grunt-tasks')(grunt);
-    require('load-grunt-config')(grunt);
-};
-
-EOT
-    );
+    $recipe->delegate('sensi/codger-sensi-project@grunt');
     $recipe->delegate('sensi/codger-sensi-project@grunt/aliases');
+    $recipe->delegate('sensi/codger-sensi-project@grunt/browserify');
     return $recipe;
 };
 
