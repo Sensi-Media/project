@@ -646,11 +646,11 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.11",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "76271b47a5b8c08e1a8bf1271dd3809a2e327c5a"
+                "reference": "63888399a931dddfc424310b3577a9f538054b63"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -671,7 +671,7 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-07T11:34:56+00:00"
+            "time": "2018-10-07T13:50:38+00:00"
         },
         {
             "name": "sensi/codger-model",
@@ -738,11 +738,11 @@
         },
         {
             "name": "sensi/codger-repository",
-            "version": "1.0.6",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-repository",
-                "reference": "e789bb33c98e5209d289827dc990b3eb60665eef"
+                "reference": "ca727d25570758469faaff9813fe21626c1c4047"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -763,7 +763,7 @@
                 }
             ],
             "description": "Generate Sensi repositories",
-            "time": "2018-10-05T14:55:56+00:00"
+            "time": "2018-10-07T11:50:09+00:00"
         },
         {
             "name": "symfony/console",
