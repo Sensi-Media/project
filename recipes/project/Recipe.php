@@ -113,6 +113,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@grunt');
     $recipe->delegate('sensi/codger-sensi-project@grunt/aliases');
     $recipe->delegate('sensi/codger-sensi-project@grunt/browserify');
+    $recipe->delegate('sensi/codger-sensi-project@grunt/sass');
     return $recipe;
 };
 
