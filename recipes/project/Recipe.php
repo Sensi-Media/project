@@ -35,6 +35,9 @@ return function (string $vendor, string $database, string $user, string $passwor
                 AND TABLE_TYPE = 'BASE TABLE'");
     $exists->execute([$database, $database]);
     while (false !== ($table = $exists->fetchColumn())) {
+        if ($table == 'cesession_session') {
+            continue;
+        }
         $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
     }
     asort($modules);
