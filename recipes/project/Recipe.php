@@ -106,6 +106,10 @@ return function (string $vendor, string $database, string $user, string $passwor
         "karma-phantomjs-launcher",
         "load-grunt-config",
         "load-grunt-tasks",
+        "monad-cms",
+        "monad-crud",
+        "monad-navigation",
+        "monad-theme-default",
         "time-grunt",
     ] as $name) {
         $package->addDependency($name, true);
