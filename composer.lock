@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "codger/generate",
-            "version": "0.6.8",
+            "version": "0.6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "d68afeaac4a407a4aa9872e22d6e1b55d7962c9b"
+                "reference": "0f30e2ae0367d1d7c189cebc6d68524986a6aa78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/d68afeaac4a407a4aa9872e22d6e1b55d7962c9b",
-                "reference": "d68afeaac4a407a4aa9872e22d6e1b55d7962c9b",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/0f30e2ae0367d1d7c189cebc6d68524986a6aa78",
+                "reference": "0f30e2ae0367d1d7c189cebc6d68524986a6aa78",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-10-05T14:46:23+00:00"
+            "time": "2018-10-07T07:05:25+00:00"
         },
         {
             "name": "codger/javascript",
@@ -646,11 +646,11 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "ade488c850ca78ba5c37c1bab3c881327bb9273d"
+                "reference": "b415ff015d81417971bf7208ee9e2470a9eca0fe"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -671,7 +671,7 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-05T14:53:50+00:00"
+            "time": "2018-10-07T11:18:32+00:00"
         },
         {
             "name": "sensi/codger-model",
