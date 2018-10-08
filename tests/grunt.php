@@ -17,7 +17,6 @@ module.exports = {
     ],
     default_site: [
         'ngtemplates',
-        'nggettext_compile',
         'browserify:site',
         'sass:site',
         'postcss:site',
@@ -26,17 +25,9 @@ module.exports = {
     ],
     default_admin: [
         'ngtemplates',
-        'nggettext_compile',
         'browserify:admin',
         'sass:admin',
         'postcss:admin'
-    ],
-    translate: [
-        'twig_gettext',
-        'nggettext_extract',
-        'shell:php',
-        'shell:gettext',
-        'nggettext_compile'
     ],
     dev_site: [
         'default_site',
