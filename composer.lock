@@ -646,11 +646,11 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.13",
+            "version": "1.1.14",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "3edb907345332cb2da6d9ec039c5c49bab465dda"
+                "reference": "dd6f8210eb4d61014270f01ac0e7c5de26b56d73"
             },
             "require": {
                 "codger/php": "^0.4.6"
@@ -671,7 +671,7 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-07T16:28:57+00:00"
+            "time": "2018-10-08T11:46:54+00:00"
         },
         {
             "name": "sensi/codger-model",
@@ -705,11 +705,11 @@
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "01a5475230b3e4ff8f853592a4c7ce783ad14576"
+                "reference": "faa87ce2a1bd9b135a1c8525d856417f8c61b6a7"
             },
             "require": {
                 "codger/php": "^0.4.6",
@@ -734,7 +734,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2018-10-07T16:31:17+00:00"
+            "time": "2018-10-08T11:47:45+00:00"
         },
         {
             "name": "sensi/codger-repository",
