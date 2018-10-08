@@ -88,7 +88,7 @@ return function (string $vendor, string $database, string $user, string $passwor
         "grunt-contrib-sass",
         "grunt-contrib-uglify",
         "grunt-contrib-watch",
-        "babel-core",
+        "@babel/core",
         "babel-plugin-transform-async-to-generator",
         "babel-plugin-transform-runtime",
         "babel-polyfill",
