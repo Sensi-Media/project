@@ -1,0 +1,20 @@
+#!/usr/bin/php
+<?php
+
+$versions = json_decode(file_get_contents(dirname(__DIR__).'/Versions.json'), true);
+foreach ($versions as $file => $hash) {
+    $dir = dirname(__DIR__);
+    preg_match("@^(css|js)/@", $file, $matches);
+    $type = $matches[1];
+    $new = preg_replace('@(css|js)/(.*?)\.(css|js)$@', "\\2.$hash.\\3", $file);
+    if (!file_exists("$dir/httpdocs/$type/$new")) {
+        $glob = preg_replace('@\.(css|js)$@', '.*.\\1', $file);
+        exec("rm $dir/httpdocs/$glob");
+        $old = preg_replace("@^$type/@", '', $file);
+        $olddir = getcwd();
+        chdir("$dir/httpdocs/$type");
+        symlink($old, $new);
+        chdir($olddir);
+    }
+}
+
