@@ -7,7 +7,7 @@ return function () : Recipe {
         protected $template = 'versions.html.twig';
     };
     $recipe->output('bin/versions');
-    exec('chmod a+x bin/versions');
+    chmod(getcwd().'/bin/versions', 0755);
     return $recipe;
 };
 
