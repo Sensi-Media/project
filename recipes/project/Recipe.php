@@ -114,6 +114,7 @@ return function (string $vendor, string $database, string $user, string $passwor
         "monad-crud",
         "monad-navigation",
         "monad-theme-default",
+        "node-sass",
         "time-grunt",
     ] as $name) {
         $package->addDependency($name, true);
