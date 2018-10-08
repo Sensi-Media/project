@@ -124,7 +124,8 @@ return function (string $vendor, string $database, string $user, string $passwor
         "autoprefixer",
         "postcss-preset-env",
         "precss",
-        "cssnano"
+        "cssnano",
+        "md5"
     ] as $name) {
         $package->addDependency($name, true);
     }
