@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "codger/generate",
-            "version": "0.6.11",
+            "version": "0.6.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "7926779536545564f02df89b8171aa895d03dd77"
+                "reference": "4a48a2ad48e06fdf5d7a308d21b59219cf2d6978"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/7926779536545564f02df89b8171aa895d03dd77",
-                "reference": "7926779536545564f02df89b8171aa895d03dd77",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/4a48a2ad48e06fdf5d7a308d21b59219cf2d6978",
+                "reference": "4a48a2ad48e06fdf5d7a308d21b59219cf2d6978",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2018-10-07T16:25:07+00:00"
+            "time": "2018-10-08T12:22:25+00:00"
         },
         {
             "name": "codger/javascript",
