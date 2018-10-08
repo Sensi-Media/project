@@ -135,6 +135,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@grunt/sass');
     $recipe->delegate('sensi/codger-sensi-project@grunt/postcss');
     $recipe->delegate('sensi/codger-sensi-project@grunt/concurrent');
+    $recipe->delegate('sensi/codger-sensi-project@grunt/copy');
     return $recipe;
 };
 
