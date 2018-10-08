@@ -100,6 +100,7 @@ return function (string $vendor, string $database, string $user, string $passwor
         "grunt-babel",
         "grunt-browserify",
         "grunt-sass",
+        "grunt-concurrent",
         "grunt-contrib-uglify",
         "grunt-contrib-watch",
         "grunt-shell",
