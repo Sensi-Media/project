@@ -117,7 +117,11 @@ return function (string $vendor, string $database, string $user, string $passwor
         "monad-theme-default",
         "node-sass",
         "time-grunt",
-        "watchify"
+        "watchify",
+        "autoprefixer",
+        "postcss-preset-env",
+        "precss",
+        "cssnano"
     ] as $name) {
         $package->addDependency($name, true);
     }
@@ -125,6 +129,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@grunt/aliases');
     $recipe->delegate('sensi/codger-sensi-project@grunt/browserify');
     $recipe->delegate('sensi/codger-sensi-project@grunt/sass');
+    $recipe->delegate('sensi/codger-sensi-project@grunt/postcss');
     return $recipe;
 };
 
