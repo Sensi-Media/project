@@ -89,10 +89,10 @@ return function (string $vendor, string $database, string $user, string $passwor
         "grunt-contrib-uglify",
         "grunt-contrib-watch",
         "@babel/core",
-        "babel-plugin-transform-async-to-generator",
-        "babel-plugin-transform-runtime",
-        "babel-polyfill",
-        "babel-preset-env",
+        "@babel/plugin-transform-async-to-generator",
+        "@babel/plugin-transform-runtime",
+        "@babel/polyfill",
+        "@babel/preset-env",
         "babelify",
         "grunt-angular-gettext",
         "grunt-angular-templates",
@@ -116,6 +116,7 @@ return function (string $vendor, string $database, string $user, string $passwor
         "monad-theme-default",
         "node-sass",
         "time-grunt",
+        "watchify"
     ] as $name) {
         $package->addDependency($name, true);
     }
