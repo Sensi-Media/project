@@ -20,16 +20,16 @@ use Quibble\Query\Buildable;
 \$container = new Container;
 
 // Default routing
-\$container->register(function (&\$router) {
+\$container->register(function (&\$router) : void {
     \$router = require __DIR__.'/routing.php';
 });
-\$container->register(function (&\$env) {
-    \$env = new Environment(dirname(__DIR__).'/Envy.json', function (\$env) {
+\$container->register(function (&\$env) : void {
+    \$env = new Environment(dirname(__DIR__).'/Envy.json', function (\$env) : array {
         \$envs = ['ft'];
         if (isset(\$_SERVER['HTTP_HOST'])) {
             \$envs[] = 'web';
             if (preg_match(
-                '@\.dev\.sensimedia\.nl$@',
+                '@\.dev\.sensimedia\.nl\$@',
                 \$_SERVER['HTTP_HOST']
             )) {
                 \$envs[] = 'dev';
@@ -62,7 +62,7 @@ use Quibble\Query\Buildable;
 
 \$env = \$container->get('env');
 // Default Twig environment
-\$container->register(function (&\$twig) use (\$container, \$env) {
+\$container->register(function (&\$twig) use (\$container, \$env) : void {
     \$router = \$container->get('router');
     \$loader = new Twig_Loader_Filesystem(__DIR__);
     \$e = \$container->get('env');
@@ -90,10 +90,10 @@ use Quibble\Query\Buildable;
             \$versions = json_decode(file_get_contents(dirname(__DIR__).'/Versions.json'), true);
         }
         \$file = preg_replace('@^/@', '', \$file);
-        return preg_replace('@\.(css|js)$@', ".{\$versions[\$file]}.\\\\1", "/\$file");
+        return preg_replace('@\.(css|js)\$@', ".{\$versions[\$file]}.\\\\1", "/\$file");
     }));
 });
-\$container->register(function (&\$adapter) {
+\$container->register(function (&\$adapter) use (\$container) : void {
     \$env = \$container->get('env');
     \$port = \$env->prod ? ";port=6432" : '';
     \$adapter = new class(
@@ -115,7 +115,7 @@ if (!(\$env->cli || \$env->test)) {
     session_start();
 }
 
-\$container->register(function (&\$barRepository) {
+\$container->register(function (&\$barRepository) : void {
     \$barRepository = new Bar\Repository;
 });
 EOT
