@@ -12,7 +12,7 @@ return function (...$modules) : Recipe {
         $module = Language::convert($module, Language::TYPE_PATH);
     });
     $recipe->set('modules', $modules);
-    $recipe->output('src/project.scss');
+    $recipe->output('src/optional.scss');
     return $recipe;
 };
 
