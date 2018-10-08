@@ -53,6 +53,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     }
     $recipe->delegate('sensi/codger-improse-view@base', $project, ...$modules);
     $recipe->delegate('sensi/codger-improse-view@view', 'Home', '\View', 'Home/template.html.twig');
+    $recipe->delegate('sensi/codger-monolyth-module@sass', 'Home');
 
     // Add Sensi-specific project repos
     $composer = new Composer;
