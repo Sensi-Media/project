@@ -118,6 +118,7 @@ return function (string $vendor, string $database, string $user, string $passwor
         "node-sass",
         "time-grunt",
         "watchify",
+        "grunt-postcss",
         "autoprefixer",
         "postcss-preset-env",
         "precss",
