@@ -137,6 +137,7 @@ return function (string $vendor, string $database, string $user, string $passwor
     $recipe->delegate('sensi/codger-sensi-project@grunt/copy');
     $recipe->delegate('sensi/codger-sensi-project@grunt/shell');
     $recipe->delegate('sensi/codger-sensi-project@versions');
+    chmod(getcwd().'/bin/versions', 0755);
     return $recipe;
 };
 
