@@ -13,7 +13,7 @@ return function () use ($recipe) : Generator {
         assert(strpos($result, <<<EOT
 module.exports = {
     'default': [
-        'prod'
+        'prod_site'
     ],
     default_site: [
         'ngtemplates',
