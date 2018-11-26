@@ -1,9 +1,5 @@
 <?php
-/**
- * This test only works if we run "npm init" beforehand
- * Doesn't seem to be optional
- * @TODO Less hackish way
- */
+
 use Gentry\Gentry\Wrapper;
 
 putenv("CODGER_DRY=1");
