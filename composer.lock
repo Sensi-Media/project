@@ -95,16 +95,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.4.16",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "f67d00ac7138d3b6f6e9206976063a1ea05f83a6"
+                "reference": "d946371fcce4a2cce1ee3e52f30f0280a45b6526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/f67d00ac7138d3b6f6e9206976063a1ea05f83a6",
-                "reference": "f67d00ac7138d3b6f6e9206976063a1ea05f83a6",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/d946371fcce4a2cce1ee3e52f30f0280a45b6526",
+                "reference": "d946371fcce4a2cce1ee3e52f30f0280a45b6526",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +133,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2018-11-12T13:56:06+00:00"
+            "time": "2019-04-08T17:08:52+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -645,14 +645,14 @@
         },
         {
             "name": "sensi/codger-improse-view",
-            "version": "1.1.19",
+            "version": "1.1.20",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view",
-                "reference": "e5a1e5e85d7a365786160b7a582e6344d01bfbe6"
+                "reference": "723330e95b8745ca443bb4b26d8390bb96c6c360"
             },
             "require": {
-                "codger/php": "^0.4.6"
+                "codger/php": "^0.5.0"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
@@ -670,18 +670,18 @@
                 }
             ],
             "description": "Generate Improse views",
-            "time": "2018-10-13T06:15:49+00:00"
+            "time": "2019-04-08T17:13:57+00:00"
         },
         {
             "name": "sensi/codger-model",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-model",
-                "reference": "63fdad78546b4a0590ff5dc0444b82399cdb83fa"
+                "reference": "dbeab0f44c1d1bac29855b87d29b548677b38829"
             },
             "require": {
-                "codger/php": "^0.4.7"
+                "codger/php": "^0.5.0"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
@@ -700,18 +700,18 @@
                 }
             ],
             "description": "Generate models",
-            "time": "2018-10-07T16:29:37+00:00"
+            "time": "2019-04-08T17:15:40+00:00"
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.1.4",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "aa0da228823f3340bc236e09fbac065e4f1f0340"
+                "reference": "625ac1ae1f608459e383454e52c35f42e40e102a"
             },
             "require": {
-                "codger/php": "^0.4.6",
+                "codger/php": "^0.5.0",
                 "php": ">=7.2",
                 "sensi/codger-improse-view": "^1.0.0",
                 "sensi/codger-model": "^1.0.0",
@@ -733,18 +733,18 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2019-04-05T11:34:25+00:00"
+            "time": "2019-04-08T17:17:58+00:00"
         },
         {
             "name": "sensi/codger-repository",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-repository",
-                "reference": "e55a5db857fcadba84b3f1688988ab29cc725a00"
+                "reference": "e25d56b5c124bbda181c5a609f619a170622c4a9"
             },
             "require": {
-                "codger/php": "^0.4.6"
+                "codger/php": "^0.5.0"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.0",
@@ -762,7 +762,7 @@
                 }
             ],
             "description": "Generate Sensi repositories",
-            "time": "2018-10-18T11:42:55+00:00"
+            "time": "2019-04-08T17:16:53+00:00"
         },
         {
             "name": "symfony/console",
