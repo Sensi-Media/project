@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "sensi/codger-monolyth-module": "^1.1.4",
+        "sensi/codger-monolyth-module": "^1.1.9",
         "codger/javascript": "^0.1.1"
     },
     "repositories": {
@@ -29,6 +29,10 @@
         "view": {
             "type": "vcs",
             "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-improse-view"
+        },
+        "form": {
+            "type": "vcs",
+            "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-form"
         }
     },
     "require-dev": {
