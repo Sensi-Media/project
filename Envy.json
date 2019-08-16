@@ -1,0 +1,9 @@
+{
+    "web": {
+        "db": {
+            "name": "codger_test",
+            "user": "codger_test",
+            "pass": "blarps"
+        }
+    }
+}
