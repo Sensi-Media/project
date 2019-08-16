@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a778c50b594953c0f4ac588350bb9aed",
+    "content-hash": "6375599baea5e914df4e123f168cc3d2",
     "packages": [
         {
             "name": "codger/generate",
-            "version": "0.6.15",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "89dd3bd074cef53cf85b1470c0b96b4167825416"
+                "reference": "88195e6df14aa3d725ed64d34e029a92c2f16088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/89dd3bd074cef53cf85b1470c0b96b4167825416",
-                "reference": "89dd3bd074cef53cf85b1470c0b96b4167825416",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/88195e6df14aa3d725ed64d34e029a92c2f16088",
+                "reference": "88195e6df14aa3d725ed64d34e029a92c2f16088",
                 "shasum": ""
             },
             "require": {
@@ -50,24 +50,24 @@
                 }
             ],
             "description": "Code generator, base framework",
-            "time": "2019-04-13T15:18:33+00:00"
+            "time": "2019-08-15T08:15:26+00:00"
         },
         {
             "name": "codger/javascript",
-            "version": "0.1.3",
+            "version": "0.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/javascript.git",
-                "reference": "1ca60fad144298d3f5950748416a4b3ac4dd4ccc"
+                "reference": "a30d85540d7e3225874591af342009c0218dcafd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/javascript/zipball/1ca60fad144298d3f5950748416a4b3ac4dd4ccc",
-                "reference": "1ca60fad144298d3f5950748416a4b3ac4dd4ccc",
+                "url": "https://api.github.com/repos/codger-php/javascript/zipball/a30d85540d7e3225874591af342009c0218dcafd",
+                "reference": "a30d85540d7e3225874591af342009c0218dcafd",
                 "shasum": ""
             },
             "require": {
-                "codger/generate": "^0.6.0"
+                "codger/generate": "^0.7.0"
             },
             "require-dev": {
                 "gentry/gentry": "^0.13.4",
@@ -91,24 +91,24 @@
                 }
             ],
             "description": "Codger code generator, Javascript templates",
-            "time": "2018-10-30T09:59:25+00:00"
+            "time": "2019-08-16T06:00:46+00:00"
         },
         {
             "name": "codger/php",
-            "version": "0.7.1",
+            "version": "0.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "04b275ac3c742b667ebfe5c92792a900fa1e24b7"
+                "reference": "6ce353ce5dad9d5393e0d24cb114aedc2ee10057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/04b275ac3c742b667ebfe5c92792a900fa1e24b7",
-                "reference": "04b275ac3c742b667ebfe5c92792a900fa1e24b7",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/6ce353ce5dad9d5393e0d24cb114aedc2ee10057",
+                "reference": "6ce353ce5dad9d5393e0d24cb114aedc2ee10057",
                 "shasum": ""
             },
             "require": {
-                "codger/generate": "^0.6.0",
+                "codger/generate": "^0.7.0",
                 "composer/composer": "^1.7"
             },
             "require-dev": {
@@ -133,7 +133,7 @@
                 }
             ],
             "description": "Codger code generator, PHP templates",
-            "time": "2019-08-14T15:42:20+00:00"
+            "time": "2019-08-15T08:18:24+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -694,7 +694,7 @@
         },
         {
             "name": "sensi/codger-form",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-form",
@@ -777,11 +777,11 @@
         },
         {
             "name": "sensi/codger-monolyth-module",
-            "version": "1.1.10",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-monolyth-module",
-                "reference": "d5194c140d33a776bd570359308d99987dbe7c68"
+                "reference": "06cc89fb713453b66b4accb77caee570c3266392"
             },
             "require": {
                 "php": ">=7.3",
@@ -806,7 +806,7 @@
                 }
             ],
             "description": "Generate Monolyth standard Sensi modules",
-            "time": "2019-08-15T13:18:32+00:00"
+            "time": "2019-08-16T05:49:58+00:00"
         },
         {
             "name": "sensi/codger-repository",
