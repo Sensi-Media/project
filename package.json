@@ -1,0 +1,18 @@
+{
+  "name": "codger-sensi-project",
+  "version": "1.0.0",
+  "description": "package.json is needed for this recipe to run",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codger-sensi-project"
+  },
+  "author": "Marijn Ophorst <marijn@sensimedia.nl>",
+  "license": "UNLICENSED"
+}
