@@ -6,12 +6,12 @@ use Codger\Php\Composer;
 use Codger\Javascript\Npm;
 
 /**
- * Kick off an entire Sensi project. Pass vendor, dbname, optional user
- * (defaults to dbname) and password to get started!
+ * Kick off an entire Sensi project. Database credentials are taken from
+ * `Envy.json`. Also, make sure to run `composer init` and `npm init` first.
  *
- * Options: `api`
+ * Options: `api` to add an api.
  */
-return function (string $vendor, string $database, string $user, string $password = null, string ...$options) : Recipe {
+return function (string ...$options) : Recipe {
     $recipe = new class(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'))) extends Recipe {};
     if (!file_exists(getcwd().'/composer.json')) {
         $recipe->error("Please run `composer init` first.\n");
@@ -21,14 +21,28 @@ return function (string $vendor, string $database, string $user, string $passwor
         $recipe->error("Please run `npm init` first.\n");
         return $recipe;
     }
-    // Default assumption is username == dbname
-    if (!isset($password)) {
-        $password = $user;
-        $user = $database;
+    if (!file_exists(getcwd().'/Envy.json')) {
+        $recipe->error("Please setup `Envy.json` first.\n");
+        return $recipe;
+    }
+    $config = json_decode(file_get_contents(getcwd().'/Envy.json'));
+    foreach (['web', 'cli'] as $key) {
+        if (isset($config->$key->db)) {
+            $database = $config->$key->db->name;
+            $user = $config->$key->db->user;
+            $password = $config->$key->db->pass;
+            break;
+        }
     }
     $project = basename(getcwd());
     $modules = [];
-    $adapter = new PDO("$vendor:dbname=$database", $user, $password);
+    $vendor = 'pgsql';
+    try {
+        $adapter = new PDO("$vendor:dbname=$database", $user, $password);
+    } catch (PDOException $e) {
+        $vender = 'mysql';
+        $adapter = new PDO("$vendor:dbname=$database", $user, $password);
+    }
     $exists = $adapter->prepare(
         "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
             WHERE ((TABLE_CATALOG = ? AND TABLE_SCHEMA = 'public') OR TABLE_SCHEMA = ?)
@@ -42,7 +56,6 @@ return function (string $vendor, string $database, string $user, string $passwor
     }
     asort($modules);
     $recipe->delegate('sensi/codger-sensi-project@config', $project);
-    $recipe->delegate('sensi/codger-sensi-project@environment', $project, $database, $user, $password);
     $recipe->delegate('sensi/codger-sensi-project@index');
     $recipe->delegate('sensi/codger-sensi-project@dependencies', $vendor, $project, ...$modules);
     $recipe->delegate('sensi/codger-sensi-project@routing', ...$modules);
