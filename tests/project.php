@@ -3,7 +3,7 @@
 use Gentry\Gentry\Wrapper;
 
 putenv("CODGER_DRY=1");
-$recipe = include 'recipes/project/Recipe.php';
+$recipe = new Codger\Sensi\Project;
 $bootstrap = new Codger\Generate\Bootstrap('project');
 $inout = Wrapper::createObject(Codger\Generate\FakeInOut::class);
 Codger\Generate\Recipe::setInOut($inout);
