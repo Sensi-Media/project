@@ -1,7 +1,7 @@
 <?php
 
 putenv("CODGER_DRY=1");
-$recipe = new Codger\Sensi\Project(['--vendor=pgsql', '--database=codger_test', '--user=codger_test', '--pass=blarps', '--api', '--ornament']);
+$recipe = new Codger\Sensi\Project(['--vendor=pgsql', '--database=codger_test', '--user=codger_test', '--pass=blarps', '--api']);
 $inout = new Codger\Generate\FakeInOut;
 Codger\Generate\Recipe::setInOut($inout);
 $recipe->execute();
