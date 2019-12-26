@@ -6,6 +6,7 @@ use Codger\Generate\Recipe;
 use Codger\Generate\Language;
 use Codger\Php\Composer;
 use Codger\Javascript\Npm;
+use Codger\Lodger\Module;
 
 /**
  * Kick off an entire Sensi project. Database credentials are taken from
@@ -67,14 +68,19 @@ class Project extends Recipe
             $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
         }
         asort($modules);
-        $this->delegate('sensi:project:config', $project);
-        $this->delegate('sensi:project:index');
-        $this->delegate('sensi:project:dependencies', $vendor, $project, ...$modules);
-        $this->delegate('sensi:project:routing', ...$modules);
-        $this->delegate('sensi:project:required', 'Home');
-        $this->delegate('sensi:project:optional', ...$modules);
+        $this->delegate(Config::class, [$project]);
+        $this->delegate(Index::class);
+        $options = [$project, "--vendor=$vendor"];
+        $modoptions = [];
         foreach ($modules as $module) {
-            $this->delegate('sensi:monolyth-module:module', $module, null, $vendor, $database, $user, $password);
+            $modoptions[] = "--module=$module";
+        }
+        $this->delegate(Dependencies::class, array_merge($options, $modoptions));
+        $this->delegate(Routing::class, $modoptions);
+        $this->delegate(Required::class, ['--module=Home']);
+        $this->delegate(Optional::class, $modoptions);
+        foreach ($modules as $module) {
+            $this->delegate(Module::class, [$module, "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password"]);
         }
         $this->delegate('sensi:improse-view:base', $project, ...$modules);
         $this->delegate('sensi:improse-view:view', 'Home', '\View', 'Home/template.html.twig');
