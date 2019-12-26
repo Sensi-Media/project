@@ -24,7 +24,7 @@ class Project extends Recipe
 
     public function __invoke() : void
     {
-        $this->initialize(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates')));
+        $this->setTwigEnvironment(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates')));
         if (!file_exists(getcwd().'/composer.json')) {
             $this->error("Please run `composer init` first.\n");
             return;
@@ -100,11 +100,7 @@ class Project extends Recipe
 
     private function addComposerPackages() : void
     {
-        // Add Sensi-specific project repos
         $composer = new Composer;
-        $composer->addVcsRepository('minimal', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/minimal');
-        $composer->addVcsRepository('fakr', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/fakr');
-        $composer->addVcsRepository('codein', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/codein');
 
         // Add Sensi-specific packages
         $composer->addDependency('monolyth/monty');
