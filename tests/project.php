@@ -1,13 +1,10 @@
 <?php
 
-use Gentry\Gentry\Wrapper;
-
 putenv("CODGER_DRY=1");
-$recipe = new Codger\Sensi\Project;
-$bootstrap = new Codger\Generate\Bootstrap('project');
-$inout = Wrapper::createObject(Codger\Generate\FakeInOut::class);
+$recipe = new Codger\Sensi\Project(['--vendor=pgsql', '--database=codger_test', '--user=codger_test', '--pass=blarps', '--api', '--ornament']);
+$inout = new Codger\Generate\FakeInOut;
 Codger\Generate\Recipe::setInOut($inout);
-$recipe->call($bootstrap, 'pgsql', 'codger_test', 'codger_test', 'blarps');
+$recipe->execute();
 $result = $inout->flush();
 
 /** Project recipe */
