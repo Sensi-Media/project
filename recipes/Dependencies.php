@@ -12,7 +12,7 @@ class Dependencies extends Recipe
     public $vendor;
 
     /** @var array */
-    public $modules = [];
+    public $module = [];
 
     /** @var string */
     protected $_template = 'dependencies.html.twig';
@@ -27,13 +27,13 @@ class Dependencies extends Recipe
                 case 'pgsql': $this->set('vendor', 'Postgresql'); break;
             }
         }
-        array_walk($this->modules, function (&$repository) {
+        array_walk($this->module, function (&$repository) {
             $repository = [
                 'variable' => Language::convert($repository, Language::TYPE_VARIABLE),
                 'namespace' => Language::convert($repository, Language::TYPE_PHP_NAMESPACE),
             ];
         });
-        $this->set('repositories', $this->modules);
+        $this->set('repositories', $this->module);
         $this->set('session', $session);
     }
 }
