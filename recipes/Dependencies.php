@@ -4,6 +4,7 @@ namespace Codger\Sensi;
 
 use Codger\Generate\Recipe;
 use Codger\Generate\Language;
+use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Dependencies extends Recipe
 {
@@ -18,7 +19,7 @@ class Dependencies extends Recipe
 
     public function __invoke(string $session) : void
     {
-        $this->setTwigEnvironment(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates')));
+        $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
         $this->output('src/dependencies.php');
         if (isset($this->vendor)) {
             switch ($this->vendor) {
@@ -29,7 +30,7 @@ class Dependencies extends Recipe
         array_walk($this->modules, function (&$repository) {
             $repository = [
                 'variable' => Language::convert($repository, Language::TYPE_VARIABLE),
-                'namespace' => Language::convert($repository, Language::TYPE_NAMESPACE),
+                'namespace' => Language::convert($repository, Language::TYPE_PHP_NAMESPACE),
             ];
         });
         $this->set('repositories', $this->modules);
