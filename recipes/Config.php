@@ -14,5 +14,5 @@ class Config extends Recipe
         $this->set('project', $project);
         $this->output('ServerConfig.json');
     }
-};
+}
 
