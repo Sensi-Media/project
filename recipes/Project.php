@@ -16,6 +16,18 @@ use Codger\Lodger\Module;
  */
 class Project extends Recipe
 {
+    /** @var string */
+    public $vendor;
+
+    /** @var string */
+    public $database;
+
+    /** @var string */
+    public $user;
+
+    /** @var string */
+    public $pass;
+
     /**
      * Add an API.
      *
@@ -80,7 +92,7 @@ class Project extends Recipe
         $this->delegate(Required::class, ['--module=Home']);
         $this->delegate(Optional::class, $modoptions);
         foreach ($modules as $module) {
-            $this->delegate(Module::class, [$module, "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password"]);
+            $this->delegate(Module::class, [$module, "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']);
         }
         $this->delegate('sensi:improse-view:base', $project, ...$modules);
         $this->delegate('sensi:improse-view:view', 'Home', '\View', 'Home/template.html.twig');
@@ -100,8 +112,6 @@ class Project extends Recipe
         $this->delegate('sensi:project:grunt-shell');
         $this->delegate('sensi:project:grunt-uglify');
         $this->delegate('sensi:project:grunt-watch');
-        $this->delegate('sensi:project:versions');
-        chmod(getcwd().'/bin/versions', 0755);
     }
 
     private function addComposerPackages() : void
@@ -112,19 +122,18 @@ class Project extends Recipe
         $composer->addDependency('monolyth/monty');
         $composer->addDependency('ornament/json');
         $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
-        $composer->addDependency('sensi/minimal=@dev');
-        $composer->addDependency('sensi/fakr=@dev');
+        $composer->addDependency('sensimedia/minimal');
+        $composer->addDependency('sensimedia/fakr');
         $composer->addDependency('twig/extensions');
         $composer->addDependency('gentry/gentry', true);
         $composer->addDependency('gentry/toast', true);
         $composer->addDependency('toast/acceptance', true);
         $composer->addDependency('toast/cache', true);
         $composer->addDependency('toast/unit', true);
-        $composer->addDependency('sensi/codein=@dev', true);
-        if ($this->askedFor('api')) {
+        $composer->addDependency('sensimedia/codein', true);
+        if ($this->api) {
             $composer->addDependency('monomelodies/monki');
-            $composer->addVcsRepository('api', 'ssh://git@barabas.sensimedia.nl/home/git/libraries/sensi/api');
-            $composer->addDependency('sensi/api=@dev');
+            $composer->addDependency('sensimedia/api');
         }
     }
 
