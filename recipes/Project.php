@@ -7,6 +7,8 @@ use Codger\Generate\Language;
 use Codger\Php\Composer;
 use Codger\Javascript\Npm;
 use Codger\Lodger\Module;
+use Twig\{ Environment, Loader\FilesystemLoader };
+use PDO;
 
 /**
  * Kick off an entire Sensi project. Database credentials are taken from
@@ -37,7 +39,7 @@ class Project extends Recipe
 
     public function __invoke() : void
     {
-        $this->setTwigEnvironment(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates')));
+        $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
         if (!file_exists(getcwd().'/composer.json')) {
             $this->error("Please run `composer init` first.\n");
             return;
@@ -77,7 +79,7 @@ class Project extends Recipe
             if ($table == 'cesession_session') {
                 continue;
             }
-            $modules[] = Language::convert($table, Language::TYPE_NAMESPACE);
+            $modules[] = Language::convert($table, Language::TYPE_PHP_NAMESPACE);
         }
         asort($modules);
         $this->delegate(Config::class, [$project]);
