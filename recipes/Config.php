@@ -3,6 +3,7 @@
 namespace Codger\Sensi;
 
 use Codger\Generate\Recipe;
+use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Config extends Recipe
 {
@@ -10,7 +11,7 @@ class Config extends Recipe
 
     public function __invoke(string $project) : void
     {
-        $this->setTwigEnvironment(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'));
+        $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
         $this->set('project', $project);
         $this->output('ServerConfig.json');
     }
