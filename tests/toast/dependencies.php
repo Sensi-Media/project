@@ -3,10 +3,10 @@
 use Gentry\Gentry\Wrapper;
 
 putenv("CODGER_DRY=1");
-$recipe = include 'recipes/dependencies/Recipe.php';
 
 /** Dependencies recipe */
-return function () use ($recipe) : Generator {
+return function () : Generator {
+    $recipe = include 'recipes/dependencies/Recipe.php';
     /** generates valid dependencies */
     yield function () use ($recipe) {
         $result = $recipe('pgsql', 'Foo', 'Bar')->render();
