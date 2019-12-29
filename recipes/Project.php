@@ -18,16 +18,33 @@ use PDO;
  */
 class Project extends Recipe
 {
-    /** @var string */
+    /**
+     * The database vendor to be used. Currently supported are `pgsql` for
+     * PostgreSQL (best support) and `mysql` for MySQL (slightly sketchy).
+     *
+     * @var string
+     */
     public $vendor;
 
-    /** @var string */
+    /**
+     * The name of the database to use.
+     *
+     * @var string
+     */
     public $database;
 
-    /** @var string */
+    /**
+     * Database username.
+     *
+     * @var string
+     */
     public $user;
 
-    /** @var string */
+    /**
+     * Database password.
+     *
+     * @var string
+     */
     public $pass;
 
     /**
@@ -98,7 +115,7 @@ class Project extends Recipe
         }
         $this->delegate('sensi:improse-view:base', $project, ...$modules);
         $this->delegate('sensi:improse-view:view', 'Home', '\View', 'Home/template.html.twig');
-        $this->delegate('sensi:monolyth-module:sass', 'Home');
+        $this->delegate(Sass::class, 'Home');
 
         $this->addComposerPackages();
         $this->addNodePackages();
