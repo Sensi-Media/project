@@ -115,7 +115,7 @@ class Project extends Recipe
         }
         $this->delegate(BaseTemplate::class, [$project]);
         $this->delegate(View::class, ['Home', '--extends=\View', '--template=Home/template.html.twig']);
-        $this->delegate(HomeTemplate::class, [$project]);
+        $this->delegate(HomeTemplate::class);
         $this->delegate(Sass::class, 'Home');
 
         $this->addComposerPackages();
