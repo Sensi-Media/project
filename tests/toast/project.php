@@ -1,7 +1,7 @@
 <?php
 
 putenv("CODGER_DRY=1");
-$recipe = new Codger\Sensi\Project(['--vendor=pgsql', '--database=codger_test', '--user=codger_test', '--pass=blarps', '--api']);
+$recipe = new Codger\Sensi\Project(['--vendor=pgsql', '--database=codger_test', '--user=codger_test', '--pass=blarps', '--api', '--output-dir=.']);
 $inout = new Codger\Generate\FakeInOut;
 Codger\Generate\Recipe::setInOut($inout);
 $recipe->execute();
@@ -9,6 +9,18 @@ $result = $inout->flush();
 
 /** Project recipe */
 return function () use ($result) : Generator {
+
+    $path = getcwd();
+    $this->beforeEach(function () {
+        exec('rm -rf tmp/project');
+        exec('cp -r tests/init tmp/project');
+        chdir('tmp/project');
+        var_Dump(getcwd());
+    });
+    $this->afterEach(function () use ($path) {
+        chdir($path);
+    });
+
     /** generates ServerConfig.json */
     yield function () use ($result) {
         assert(strpos($result, <<<EOT
