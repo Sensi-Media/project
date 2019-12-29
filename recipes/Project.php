@@ -6,7 +6,7 @@ use Codger\Generate\Recipe;
 use Codger\Generate\Language;
 use Codger\Php\Composer;
 use Codger\Javascript\Npm;
-use Codger\Lodger\Module;
+use Codger\Lodger\{ Module, View };
 use Twig\{ Environment, Loader\FilesystemLoader };
 use PDO;
 
@@ -113,8 +113,9 @@ class Project extends Recipe
         foreach ($modules as $module) {
             $this->delegate(Module::class, [$module, "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']);
         }
-        $this->delegate('sensi:improse-view:base', $project, ...$modules);
-        $this->delegate('sensi:improse-view:view', 'Home', '\View', 'Home/template.html.twig');
+        $this->delegate(BaseTemplate::class);
+        $this->delegate(View::class, ['Home', '--extends=\View', '--template=Home/template.html.twig']);
+        $this->delegate(HomeTemplate::class);
         $this->delegate(Sass::class, 'Home');
 
         $this->addComposerPackages();
