@@ -13,7 +13,7 @@ class Index extends Recipe
     public function __invoke() : void
     {
         $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
-        $this->output('httpdocs/index.php');
+        $this->output('index.php');
     }
 }
 
