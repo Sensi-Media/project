@@ -1,0 +1,9 @@
+{
+  "name": "init",
+  "version": "1.0.0",
+  "description": "Test project",
+  "main": "index.js",
+  "author": "Marijn Ophorst <marijn@sensimedia.nl>",
+  "license": "none",
+  "private": true
+}

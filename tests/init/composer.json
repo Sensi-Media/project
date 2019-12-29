@@ -1,0 +1,13 @@
+{
+    "name": "sensi/test",
+    "description": "Test project",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Marijn Ophorst",
+            "email": "marijn@sensimedia.nl"
+        }
+    ],
+    "require": {}
+}
