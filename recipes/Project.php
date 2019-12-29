@@ -100,7 +100,7 @@ class Project extends Recipe
         }
         asort($modules);
         $this->delegate(Config::class, [$project]);
-        $this->delegate(Index::class);
+        $this->delegate(Index::class, []);
         $options = [$project, "--vendor=$vendor"];
         $modoptions = [];
         foreach ($modules as $module) {
@@ -115,13 +115,13 @@ class Project extends Recipe
         }
         $this->delegate(BaseTemplate::class, [$project]);
         $this->delegate(View::class, ['Home', '--extends=\View', '--template=Home/template.html.twig']);
-        $this->delegate(HomeTemplate::class);
+        $this->delegate(HomeTemplate::class, []);
         $this->delegate(Sass::class, ['Home']);
 
         $this->addComposerPackages();
         $this->addNodePackages();
 
-        $this->delegate('sensi:project:grunt');
+        $this->delegate(Grunt::class, []);
         $this->delegate('sensi:project:grunt-aliases');
         $this->delegate('sensi:project:grunt-ngtemplates');
         $this->delegate('sensi:project:grunt-browserify');
