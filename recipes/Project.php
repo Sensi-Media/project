@@ -122,7 +122,7 @@ class Project extends Recipe
         $this->addNodePackages();
 
         $this->delegate(Grunt::class, []);
-        $this->delegate('sensi:project:grunt-aliases');
+        $this->delegate(Grunt\Aliases::class, []);
         $this->delegate('sensi:project:grunt-ngtemplates');
         $this->delegate('sensi:project:grunt-browserify');
         $this->delegate('sensi:project:grunt-sass');
