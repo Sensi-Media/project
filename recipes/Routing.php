@@ -28,7 +28,7 @@ class Routing extends Recipe
         $this->setTwigEnvironment($twig);
         $this->set('modules', $this->module);
         $this->set('api', $this->api);
-        $this->output('src/routing.php');
+        $this->output('routing.php');
     }
 }
 
