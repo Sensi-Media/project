@@ -781,22 +781,27 @@
         },
         {
             "name": "sensimedia/codger-sass",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sensi-Media/sass.git",
-                "reference": "59d1f3fabb871d17e68d6d1531c39e756e4c46c3"
+                "reference": "798fa01359fa5179ef46ed4cff5bde6006316a4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sensi-Media/sass/zipball/59d1f3fabb871d17e68d6d1531c39e756e4c46c3",
-                "reference": "59d1f3fabb871d17e68d6d1531c39e756e4c46c3",
+                "url": "https://api.github.com/repos/Sensi-Media/sass/zipball/798fa01359fa5179ef46ed4cff5bde6006316a4b",
+                "reference": "798fa01359fa5179ef46ed4cff5bde6006316a4b",
                 "shasum": ""
             },
             "require-dev": {
                 "codger/generate": "^0.9.5"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codger\\Sensi\\": "./recipes"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
@@ -808,7 +813,7 @@
                 }
             ],
             "description": "SASS generation recipe",
-            "time": "2019-12-24T10:35:07+00:00"
+            "time": "2019-12-29T08:12:38+00:00"
         },
         {
             "name": "symfony/console",
