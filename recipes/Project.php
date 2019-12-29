@@ -121,17 +121,17 @@ class Project extends Recipe
         $this->addComposerPackages();
         $this->addNodePackages();
 
-        copy('static/Gruntfile.js', 'Gruntfile.js');
-        copy('static/grunt-aliases.js', 'grunt/aliases.js');
-        copy('static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
-        copy('static/grunt-browserify.js', 'grunt/browserify.js');
-        copy('static/grunt-sass.js', 'grunt/sass.js');
-        copy('static/grunt-postcss.js', 'grunt/postcss.js');
-        copy('static/grunt-concurrent.js', 'grunt/concurrent.js');
-        copy('static/grunt-copy.js', 'grunt/copy.js');
-        copy('static/grunt-shell.js', 'grunt/shell.js');
-        copy('static/grunt-uglify.js', 'grunt/uglify.js');
-        copy('static/grunt-watch.js', 'grunt/watch.js');
+        copy(dirname(__DIR__).'/static/Gruntfile.js', 'Gruntfile.js');
+        copy(dirname(__DIR__).'/static/grunt-aliases.js', 'grunt/aliases.js');
+        copy(dirname(__DIR__).'/static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
+        copy(dirname(__DIR__).'/static/grunt-browserify.js', 'grunt/browserify.js');
+        copy(dirname(__DIR__).'/static/grunt-sass.js', 'grunt/sass.js');
+        copy(dirname(__DIR__).'/static/grunt-postcss.js', 'grunt/postcss.js');
+        copy(dirname(__DIR__).'/static/grunt-concurrent.js', 'grunt/concurrent.js');
+        copy(dirname(__DIR__).'/static/grunt-copy.js', 'grunt/copy.js');
+        copy(dirname(__DIR__).'/static/grunt-shell.js', 'grunt/shell.js');
+        copy(dirname(__DIR__).'/static/grunt-uglify.js', 'grunt/uglify.js');
+        copy(dirname(__DIR__).'/static/grunt-watch.js', 'grunt/watch.js');
     }
 
     private function addComposerPackages() : void
