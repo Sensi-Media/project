@@ -113,7 +113,7 @@ class Project extends Recipe
         foreach ($modules as $module) {
             $this->delegate(Module::class, [$module, "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']);
         }
-        $this->delegate(BaseTemplate::class);
+        $this->delegate(BaseTemplate::class, [$project]);
         $this->delegate(View::class, ['Home', '--extends=\View', '--template=Home/template.html.twig']);
         $this->delegate(HomeTemplate::class);
         $this->delegate(Sass::class, 'Home');
