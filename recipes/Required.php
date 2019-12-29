@@ -4,6 +4,7 @@ namespace Codger\Sensi;
 
 use Codger\Generate\Recipe;
 use Codger\Generate\Language;
+use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Required extends Recipe
 {
@@ -15,7 +16,7 @@ class Required extends Recipe
 
     public function __invoke() : void
     {
-        $this->setTwigEnvironment(new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__).'/templates')));
+        $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
         array_walk($this->module, function (&$module) {
             $module = Language::convert($module, Language::TYPE_PATH);
         });
