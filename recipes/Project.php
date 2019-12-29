@@ -93,7 +93,6 @@ class Project extends Recipe
         $this->addNodePackages();
 
         if (isset($this->outputDir)) {
-            copy(dirname(__DIR__).'/static/Envy.json', 'Envy.json');
             copy(dirname(__DIR__).'/static/Gruntfile.js', 'Gruntfile.js');
             mkdir('grunt');
             copy(dirname(__DIR__).'/static/grunt-aliases.js', 'grunt/aliases.js');
