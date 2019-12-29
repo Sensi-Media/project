@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fc58ba0a711185c7a65f119454e1f96",
+    "content-hash": "08b7926fedfe210ccf0dcf92bd80fea6",
     "packages": [
         {
             "name": "codger/generate",
@@ -50,6 +50,45 @@
             ],
             "description": "Code generator, base framework",
             "time": "2019-12-24T01:53:29+00:00"
+        },
+        {
+            "name": "codger/javascript",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codger-php/javascript.git",
+                "reference": "41417c8bed740fa802ef44e96b1f37174777ae6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codger-php/javascript/zipball/41417c8bed740fa802ef44e96b1f37174777ae6b",
+                "reference": "41417c8bed740fa802ef44e96b1f37174777ae6b",
+                "shasum": ""
+            },
+            "require": {
+                "codger/generate": "^0.9.0"
+            },
+            "require-dev": {
+                "toast/unit": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codger\\Javascript\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Ophorst",
+                    "email": "marijn@monomelodies.nl"
+                }
+            ],
+            "description": "Codger code generator, Javascript templates",
+            "time": "2019-12-29T15:33:57+00:00"
         },
         {
             "name": "codger/php",
@@ -507,16 +546,16 @@
         },
         {
             "name": "monolyth/lodger",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/monolyth-php/lodger.git",
-                "reference": "4bbcbbd37fbea52a4267bbd46f9d46c50e7879b6"
+                "reference": "6913c56cd5ebe5dc91d1beae5971f204c6f1244c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/monolyth-php/lodger/zipball/4bbcbbd37fbea52a4267bbd46f9d46c50e7879b6",
-                "reference": "4bbcbbd37fbea52a4267bbd46f9d46c50e7879b6",
+                "url": "https://api.github.com/repos/monolyth-php/lodger/zipball/6913c56cd5ebe5dc91d1beae5971f204c6f1244c",
+                "reference": "6913c56cd5ebe5dc91d1beae5971f204c6f1244c",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +586,7 @@
                 }
             ],
             "description": "Codger recipes for Monolyth components",
-            "time": "2019-12-29T06:51:33+00:00"
+            "time": "2019-12-29T15:16:03+00:00"
         },
         {
             "name": "monomelodies/reflex",
