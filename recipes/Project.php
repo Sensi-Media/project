@@ -27,27 +27,6 @@ class Project extends Recipe
     public $vendor;
 
     /**
-     * The name of the database to use.
-     *
-     * @var string
-     */
-    public $database;
-
-    /**
-     * Database username.
-     *
-     * @var string
-     */
-    public $user;
-
-    /**
-     * Database password.
-     *
-     * @var string
-     */
-    public $pass;
-
-    /**
      * Add an API.
      *
      * @var bool
@@ -121,6 +100,7 @@ class Project extends Recipe
         $this->addComposerPackages();
         $this->addNodePackages();
 
+        copy(dirname(__DIR__).'/static/Envy.json', 'Envy.json');
         copy(dirname(__DIR__).'/static/Gruntfile.js', 'Gruntfile.js');
         copy(dirname(__DIR__).'/static/grunt-aliases.js', 'grunt/aliases.js');
         copy(dirname(__DIR__).'/static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
