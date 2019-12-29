@@ -121,17 +121,17 @@ class Project extends Recipe
         $this->addComposerPackages();
         $this->addNodePackages();
 
-        $this->delegate(Grunt::class, []);
-        $this->delegate(Grunt\Aliases::class, []);
-        $this->delegate(Grunt\NgTemplates::class, []);
-        $this->delegate('sensi:project:grunt-browserify');
-        $this->delegate('sensi:project:grunt-sass');
-        $this->delegate('sensi:project:grunt-postcss');
-        $this->delegate('sensi:project:grunt-concurrent');
-        $this->delegate('sensi:project:grunt-copy');
-        $this->delegate('sensi:project:grunt-shell');
-        $this->delegate('sensi:project:grunt-uglify');
-        $this->delegate('sensi:project:grunt-watch');
+        copy('static/Gruntfile.js', 'Gruntfile.js');
+        copy('static/grunt-aliases.js', 'grunt/aliases.js');
+        copy('static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
+        copy('static/grunt-browserify.js', 'grunt/browserify.js');
+        copy('static/grunt-sass.js', 'grunt/sass.js');
+        copy('static/grunt-postcss.js', 'grunt/postcss.js');
+        copy('static/grunt-concurrent.js', 'grunt/concurrent.js');
+        copy('static/grunt-copy.js', 'grunt/copy.js');
+        copy('static/grunt-shell.js', 'grunt/shell.js');
+        copy('static/grunt-uglify.js', 'grunt/uglify.js');
+        copy('static/grunt-watch.js', 'grunt/watch.js');
     }
 
     private function addComposerPackages() : void
