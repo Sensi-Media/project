@@ -19,14 +19,6 @@ use PDO;
 class Project extends Recipe
 {
     /**
-     * The database vendor to be used. Currently supported are `pgsql` for
-     * PostgreSQL (best support) and `mysql` for MySQL (slightly sketchy).
-     *
-     * @var string
-     */
-    public $vendor;
-
-    /**
      * Add an API.
      *
      * @var bool
@@ -63,7 +55,7 @@ class Project extends Recipe
         try {
             $adapter = new PDO("$vendor:dbname=$database", $user, $password);
         } catch (PDOException $e) {
-            $vender = 'mysql';
+            $vendor = 'mysql';
             $adapter = new PDO("$vendor:dbname=$database", $user, $password);
         }
         $exists = $adapter->prepare(
@@ -78,50 +70,53 @@ class Project extends Recipe
             $modules[] = Language::convert($table, Language::TYPE_PHP_NAMESPACE);
         }
         asort($modules);
-        $this->delegate(Config::class, [$project]);
-        $this->delegate(Index::class, []);
-        $options = [$project, "--vendor=$vendor"];
+        $this->delegate(Config::class, [$project, '--output-dir=.']);
+        $this->delegate(Index::class, ['--output-dir=httpdocs']);
+        $options = [$project, "--vendor=$vendor", '--output-dir=src'];
         $modoptions = [];
         foreach ($modules as $module) {
             $modoptions[] = "--module=$module";
         }
         $this->delegate(Dependencies::class, array_merge($options, $modoptions));
-        $this->delegate(Routing::class, $modoptions);
-        $this->delegate(Required::class, ['--module=Home']);
-        $this->delegate(Optional::class, $modoptions);
+        $this->delegate(Routing::class, array_merge(['--output-dir=src'], $modoptions));
+        $this->delegate(Required::class, ['--output-dir=src', '--module=Home']);
+        $this->delegate(Optional::class, array_merge(['--output-dir=src'], $modoptions));
         foreach ($modules as $module) {
-            $this->delegate(Module::class, [$module, "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']);
+            $this->delegate(Module::class, [$module, '--output-dir=src', "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']);
         }
-        $this->delegate(BaseTemplate::class, [$project]);
-        $this->delegate(View::class, ['Home', '--extends=\View', '--template=Home/template.html.twig']);
-        $this->delegate(HomeTemplate::class, []);
-        $this->delegate(Sass::class, ['Home']);
+        $this->delegate(BaseTemplate::class, [$project, '--output-dir=src']);
+        $this->delegate(View::class, ['Home', '--output-dir=src', '--extends=\View', '--template=Home/template.html.twig']);
+        $this->delegate(HomeTemplate::class, ['--output-dir=src']);
+        $this->delegate(Sass::class, ['Home', '--output-dir=src']);
 
-        $this->addComposerPackages();
+        $this->addComposerPackages($vendor);
         $this->addNodePackages();
 
-        copy(dirname(__DIR__).'/static/Envy.json', 'Envy.json');
-        copy(dirname(__DIR__).'/static/Gruntfile.js', 'Gruntfile.js');
-        copy(dirname(__DIR__).'/static/grunt-aliases.js', 'grunt/aliases.js');
-        copy(dirname(__DIR__).'/static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
-        copy(dirname(__DIR__).'/static/grunt-browserify.js', 'grunt/browserify.js');
-        copy(dirname(__DIR__).'/static/grunt-sass.js', 'grunt/sass.js');
-        copy(dirname(__DIR__).'/static/grunt-postcss.js', 'grunt/postcss.js');
-        copy(dirname(__DIR__).'/static/grunt-concurrent.js', 'grunt/concurrent.js');
-        copy(dirname(__DIR__).'/static/grunt-copy.js', 'grunt/copy.js');
-        copy(dirname(__DIR__).'/static/grunt-shell.js', 'grunt/shell.js');
-        copy(dirname(__DIR__).'/static/grunt-uglify.js', 'grunt/uglify.js');
-        copy(dirname(__DIR__).'/static/grunt-watch.js', 'grunt/watch.js');
+        if (isset($this->outputDir)) {
+            copy(dirname(__DIR__).'/static/Envy.json', 'Envy.json');
+            copy(dirname(__DIR__).'/static/Gruntfile.js', 'Gruntfile.js');
+            mkdir('grunt');
+            copy(dirname(__DIR__).'/static/grunt-aliases.js', 'grunt/aliases.js');
+            copy(dirname(__DIR__).'/static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
+            copy(dirname(__DIR__).'/static/grunt-browserify.js', 'grunt/browserify.js');
+            copy(dirname(__DIR__).'/static/grunt-sass.js', 'grunt/sass.js');
+            copy(dirname(__DIR__).'/static/grunt-postcss.js', 'grunt/postcss.js');
+            copy(dirname(__DIR__).'/static/grunt-concurrent.js', 'grunt/concurrent.js');
+            copy(dirname(__DIR__).'/static/grunt-copy.js', 'grunt/copy.js');
+            copy(dirname(__DIR__).'/static/grunt-shell.js', 'grunt/shell.js');
+            copy(dirname(__DIR__).'/static/grunt-uglify.js', 'grunt/uglify.js');
+            copy(dirname(__DIR__).'/static/grunt-watch.js', 'grunt/watch.js');
+        }
     }
 
-    private function addComposerPackages() : void
+    private function addComposerPackages(string $vendor) : void
     {
         $composer = new Composer;
 
         // Add Sensi-specific packages
         $composer->addDependency('monolyth/monty');
         $composer->addDependency('ornament/json');
-        $composer->addDependency('quibble/'.($this->vendor == 'pgsql' ? 'postgresql' : 'mysql'));
+        $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
         $composer->addDependency('sensimedia/minimal');
         $composer->addDependency('sensimedia/fakr');
         $composer->addDependency('twig/extensions');
