@@ -1,7 +1,6 @@
 <?php
 
-putenv("CODGER_DRY=1");
-$recipe = new Codger\Sensi\Project(['--vendor=pgsql', '--api', '--output-dir=.']);
+$recipe = new Codger\Sensi\Project(['--api', '--output-dir=.']);
 $inout = new Codger\Generate\FakeInOut;
 Codger\Generate\Recipe::setInOut($inout);
 
@@ -14,17 +13,19 @@ return function () use ($recipe, $inout) : Generator {
         exec('cp -r tests/init tmp/project');
         chdir('tmp/project');
         $recipe->execute();
-        $result = $inout->flush();
+        $inout->flush();
     });
     $this->afterEach(function () use ($path) {
         chdir($path);
     });
 
     /** Generating all files */
-    yield function () use ($result) : Generator {
+    yield function () : Generator {
 
         /** generates ServerConfig.json */
-        yield function () use ($result) {
+        yield function () {
+            assert(file_exists('tmp/project/ServerConfig.json'));
+            $result = file_get_contents('tmp/project/ServerConfig.json');
             assert(strpos($result, <<<EOT
     {
         "codger-sensi-project": "httpdocs"
