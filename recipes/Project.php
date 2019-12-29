@@ -123,7 +123,7 @@ class Project extends Recipe
 
         $this->delegate(Grunt::class, []);
         $this->delegate(Grunt\Aliases::class, []);
-        $this->delegate('sensi:project:grunt-ngtemplates');
+        $this->delegate(Grunt\NgTemplates::class, []);
         $this->delegate('sensi:project:grunt-browserify');
         $this->delegate('sensi:project:grunt-sass');
         $this->delegate('sensi:project:grunt-postcss');
