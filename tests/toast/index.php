@@ -3,10 +3,10 @@
 use Gentry\Gentry\Wrapper;
 
 putenv("CODGER_DRY=1");
-$recipe = include 'recipes/index/Recipe.php';
 
 /** Index recipe */
-return function () use ($recipe) : Generator {
+return function () : Generator {
+    $recipe = include 'recipes/index/Recipe.php';
     /** generates a valid index */
     yield function () use ($recipe) {
         $result = $recipe('Foo')->render();
