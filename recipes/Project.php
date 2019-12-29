@@ -141,7 +141,7 @@ class Project extends Recipe
         // Add Sensi-specific packages
         $composer->addDependency('monolyth/monty');
         $composer->addDependency('ornament/json');
-        $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
+        $composer->addDependency('quibble/'.($this->vendor == 'pgsql' ? 'postgresql' : 'mysql'));
         $composer->addDependency('sensimedia/minimal');
         $composer->addDependency('sensimedia/fakr');
         $composer->addDependency('twig/extensions');
