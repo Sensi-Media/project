@@ -3,10 +3,10 @@
 use Gentry\Gentry\Wrapper;
 
 putenv("CODGER_DRY=1");
-$recipe = include 'recipes/routing/Recipe.php';
-$bootstrap = new Codger\Generate\Bootstrap('routing');
 /** Routing recipe */
-return function () use ($recipe, $bootstrap) : Generator {
+return function () : Generator {
+    $recipe = include 'recipes/routing/Recipe.php';
+    $bootstrap = new Codger\Generate\Bootstrap('routing');
     /** generates a valid router */
     yield function () use ($recipe, $bootstrap) {
         $result = $recipe->call($bootstrap, 'User')->render();
