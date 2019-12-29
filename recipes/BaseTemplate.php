@@ -4,10 +4,11 @@ namespace Codger\Sensi;
 
 use Codger\Generate\Recipe;
 use Codger\Generate\Language;
+use Twig\{ Environment, Loader\FilesystemLoader, TwigFilter };
 
 class BaseTemplate extends Recipe
 {
-    /** @var string */
+    /** @var array */
     public $module = [];
 
     /** @var string */
@@ -15,14 +16,14 @@ class BaseTemplate extends Recipe
 
     public function __invoke(string $project) : void
     {
-        $twig = new Twig_Environment(new Twig_Loader_Filesystem(dirname(__DIR__, 2).'/templates'));
-        $twig->addFilter(new Twig_SimpleFilter('normalize', function (string $module) : string {
+        $twig = new Environment(new FilesystemLoader(dirname(__DIR__).'/templates'));
+        $twig->addFilter(new TwigFilter('normalize', function (string $module) : string {
             return strtolower(str_replace('\\', '-', $module));
         }));
         $this->setTwigEnvironment($twig);
         $this->output(getcwd()."/src/template.html.twig");
         $this->set('project', $project);
-        $this->set('modules', $modules);
+        $this->set('modules', $this->module);
     }
 }
 
