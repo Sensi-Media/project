@@ -507,16 +507,16 @@
         },
         {
             "name": "monolyth/lodger",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/monolyth-php/lodger.git",
-                "reference": "39cd33ec61d3dac7c8411738660182eadd359b66"
+                "reference": "4bbcbbd37fbea52a4267bbd46f9d46c50e7879b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/monolyth-php/lodger/zipball/39cd33ec61d3dac7c8411738660182eadd359b66",
-                "reference": "39cd33ec61d3dac7c8411738660182eadd359b66",
+                "url": "https://api.github.com/repos/monolyth-php/lodger/zipball/4bbcbbd37fbea52a4267bbd46f9d46c50e7879b6",
+                "reference": "4bbcbbd37fbea52a4267bbd46f9d46c50e7879b6",
                 "shasum": ""
             },
             "require": {
@@ -530,6 +530,12 @@
                 "toast/unit": "^2.0"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Monolyth\\Lodger\\": "./src",
+                    "Codger\\Lodger\\": "./recipes"
+                }
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -541,7 +547,7 @@
                 }
             ],
             "description": "Codger recipes for Monolyth components",
-            "time": "2019-12-24T16:18:07+00:00"
+            "time": "2019-12-29T06:51:33+00:00"
         },
         {
             "name": "monomelodies/reflex",
@@ -1263,16 +1269,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.12.2",
+            "version": "v2.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "d761fd1f1c6b867ae09a7d8119a6d95d06dc44ed"
+                "reference": "97b6311585cae66a26833b14b33785f5797f7d39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d761fd1f1c6b867ae09a7d8119a6d95d06dc44ed",
-                "reference": "d761fd1f1c6b867ae09a7d8119a6d95d06dc44ed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/97b6311585cae66a26833b14b33785f5797f7d39",
+                "reference": "97b6311585cae66a26833b14b33785f5797f7d39",
                 "shasum": ""
             },
             "require": {
@@ -1282,8 +1288,7 @@
             },
             "require-dev": {
                 "psr/container": "^1.0",
-                "symfony/debug": "^3.4|^4.2",
-                "symfony/phpunit-bridge": "^4.4@dev|^5.0"
+                "symfony/phpunit-bridge": "^4.4|^5.0"
             },
             "type": "library",
             "extra": {
@@ -1312,7 +1317,6 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "https://twig.symfony.com/contributors",
                     "role": "Contributors"
                 },
                 {
@@ -1326,7 +1330,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-11-11T16:52:09+00:00"
+            "time": "2019-12-28T07:12:03+00:00"
         },
         {
             "name": "ulrichsg/getopt-php",
@@ -1650,16 +1654,16 @@
         },
         {
             "name": "toast/unit",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/toast-php/unit.git",
-                "reference": "6660c39c4a54b56aa1d0112dcd1077ec81bc2356"
+                "reference": "53c412260493cbfa1f5ec8284e764be1334c3c95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/toast-php/unit/zipball/6660c39c4a54b56aa1d0112dcd1077ec81bc2356",
-                "reference": "6660c39c4a54b56aa1d0112dcd1077ec81bc2356",
+                "url": "https://api.github.com/repos/toast-php/unit/zipball/53c412260493cbfa1f5ec8284e764be1334c3c95",
+                "reference": "53c412260493cbfa1f5ec8284e764be1334c3c95",
                 "shasum": ""
             },
             "require": {
@@ -1688,7 +1692,7 @@
                 }
             ],
             "description": "Super-simple unit testing for PHP7",
-            "time": "2019-12-23T14:48:42+00:00"
+            "time": "2019-12-28T13:26:39+00:00"
         }
     ],
     "aliases": [],
