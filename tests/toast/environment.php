@@ -3,13 +3,14 @@
 use Gentry\Gentry\Wrapper;
 
 putenv("CODGER_DRY=1");
-$recipe = include 'recipes/environment/Recipe.php';
+$recipe = new Codger\Sensi\Environment(['foo', '--database=codger_test', '--user=codget_test', '--pass=blarps']);
 
 /** Environment recipe */
 return function () use ($recipe) : Generator {
     /** generates a valid environment */
     yield function () use ($recipe) {
-        $result = $recipe('foo', 'codger_test', 'codger_test', 'blarps')->render();
+        $recipe->execute();
+        $result = $recipe->render();
         assert(strpos($result, <<<EOT
 {
     "web": {
