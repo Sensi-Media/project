@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f98279f1f4b56027f7818d704610f8d4",
+    "content-hash": "0fc58ba0a711185c7a65f119454e1f96",
     "packages": [
         {
             "name": "codger/generate",
