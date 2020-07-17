@@ -136,6 +136,9 @@ class Project extends Recipe
         // Add NPM packages
         $package = new Npm;
         foreach ([
+            "laravel-mix",
+            "vue-template-compiler",
+            "babel-loader",
             "browserify",
             "grunt",
             "grunt-browserify",
