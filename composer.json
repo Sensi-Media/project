@@ -2,7 +2,7 @@
     "name": "sensimedia/codger-project",
     "description": "Full Sensi project",
     "type": "library",
-    "license": "properietary",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Marijn Ophorst",
