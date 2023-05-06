@@ -12,7 +12,8 @@
     "require": {
         "monolyth/lodger": "^1.0",
         "sensimedia/codger-sass": "^1.0",
-        "codger/javascript": "^0.2.0"
+        "codger/javascript": "^0.2.0",
+        "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
         "toast/unit": "^2.0",
