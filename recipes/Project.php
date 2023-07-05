@@ -57,7 +57,7 @@ class Project extends Recipe
         }
         file_put_contents(getcwd().'/package.json', json_encode($json, JSON_PRETTY_PRINT));
         if (!file_exists(getcwd().'/.env')) {
-            $this->error("Please setup you `.env` file first.\n");
+            $this->error("Please setup your `.env` file first.\n");
             return;
         }
         $dotenv = Dotenv::createImmutable(getcwd());
