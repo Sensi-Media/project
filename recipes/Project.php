@@ -77,7 +77,7 @@ class Project extends Recipe
             "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
                 WHERE ((TABLE_CATALOG = ? AND TABLE_SCHEMA = 'public') OR TABLE_SCHEMA = ?)
                     AND TABLE_TYPE = 'BASE TABLE'");
-        $exists->execute([$database, $database]);
+        $exists->execute([$_ENV['DB_NAME'], $_ENV['DB_NAME']]);
         while (false !== ($table = $exists->fetchColumn())) {
             if ($table == 'cesession_session') {
                 continue;
