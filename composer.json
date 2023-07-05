@@ -10,14 +10,14 @@
         }
     ],
     "require": {
-        "monolyth/lodger": "^1.0",
+        "monolyth/lodger": "^1.1",
         "sensimedia/codger-sass": "^1.0",
         "codger/javascript": "^0.2.0",
         "vlucas/phpdotenv": "^5.5"
     },
     "require-dev": {
         "toast/unit": "^2.0",
-        "gentry/gentry": "^0.13.0",
+        "gentry/gentry": "^0.16",
         "gentry/toast": "^0.1.0"
     },
     "autoload": {
