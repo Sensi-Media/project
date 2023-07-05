@@ -1332,16 +1332,16 @@
         },
         {
             "name": "sensimedia/codger-sass",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sensi-Media/sass.git",
-                "reference": "798fa01359fa5179ef46ed4cff5bde6006316a4b"
+                "reference": "0484592ce59e7a6db07d09b4cdaabd6d073a43c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sensi-Media/sass/zipball/798fa01359fa5179ef46ed4cff5bde6006316a4b",
-                "reference": "798fa01359fa5179ef46ed4cff5bde6006316a4b",
+                "url": "https://api.github.com/repos/Sensi-Media/sass/zipball/0484592ce59e7a6db07d09b4cdaabd6d073a43c1",
+                "reference": "0484592ce59e7a6db07d09b4cdaabd6d073a43c1",
                 "shasum": ""
             },
             "require-dev": {
@@ -1366,9 +1366,9 @@
             "description": "SASS generation recipe",
             "support": {
                 "issues": "https://github.com/Sensi-Media/sass/issues",
-                "source": "https://github.com/Sensi-Media/sass/tree/master"
+                "source": "https://github.com/Sensi-Media/sass/tree/1.0.2"
             },
-            "time": "2019-12-29T08:12:38+00:00"
+            "time": "2023-07-05T15:37:41+00:00"
         },
         {
             "name": "symfony/console",
