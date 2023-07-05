@@ -100,6 +100,7 @@ class Project extends Recipe
                 Module::class,
                 [$module, '--output-dir=src', "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']
             );
+            $this->delegate(Repository::class, [$module, '--output-dir=src']);
         }
         $this->delegate(BaseTemplate::class, [$project, '--output-dir=src']);
         $this->delegate(View::class, ['Home', '--output-dir=src', '--extends=\View', '--template=Home/template.html.twig']);
@@ -122,6 +123,7 @@ class Project extends Recipe
         $composer->addDependency('monolyth/monty');
         $composer->addDependency('ornament/json');
         $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
+        $composer->addDependency('quibble/query');
         $composer->addDependency('sensimedia/minimal');
         $composer->addDependency('sensimedia/fakr');
         $composer->addDependency('sensimedia/supportery');
