@@ -9,10 +9,11 @@ use Codger\Javascript\Npm;
 use Codger\Lodger\{ Module, View };
 use Twig\{ Environment, Loader\FilesystemLoader };
 use PDO;
+use Dotenv\Dotenv;
 
 /**
  * Kick off an entire Sensi project. Database credentials are taken from
- * `Envy.json`. Also, make sure to run `composer init` and `npm init` first.
+ * `.env`. Also, make sure to run `composer init` and `yarn init` first.
  *
  * Options: `api` to add an api.
  */
@@ -33,30 +34,43 @@ class Project extends Recipe
             return;
         }
         if (!file_exists(getcwd().'/package.json')) {
-            $this->error("Please run `npm init` first.\n");
+            $this->error("Please run `yarn init` first.\n");
             return;
         }
-        if (!file_exists(getcwd().'/Envy.json')) {
-            $this->error("Please setup `Envy.json` first.\n");
-            return;
+        $json = json_decode(file_get_contents(getcwd().'/package.json'), false);
+        if (!isset($json->scripts)) {
+            $json->scripts = new stdClass;
         }
-        $config = json_decode(file_get_contents(getcwd().'/Envy.json'));
-        foreach (['web', 'cli'] as $key) {
-            if (isset($config->$key->db)) {
-                $database = $config->$key->db->name;
-                $user = $config->$key->db->user;
-                $password = $config->$key->db->pass;
-                break;
+        foreach ([
+            "dev" => "npm run development",
+            "development" => "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+            "watch" => "npm run development -- --watch",
+            "watch-poll" => "npm run watch -- --watch-poll",
+            "hot" => "NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+            "prod" => "npm run production",
+            "production" => "NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
+        ] as $name => $value) {
+            if (!isset($json->scripts->$name)) {
+                $json->scripts->$name = $value;
             }
         }
+        file_put_contents(getcwd().'/package.json', json_encode($json, JSON_PRETTY_PRINT));
+        if (!file_exists(getcwd().'/.env')) {
+            $this->error("Please setup you `.env` file first.\n");
+            return;
+        }
+        $dotenv = Dotenv::createImmutable(getcwd());
+        $dotenv->load();
         $project = basename(getcwd());
         $modules = [];
-        $vendor = 'pgsql';
+        // We prefer postgresql, but some projects are stuck on mysql.
+        $vendor = $_ENV['DB_VENDOR'] ?? 'pgsql';
         try {
-            $adapter = new PDO("$vendor:dbname=$database", $user, $password);
+            $adapter = new PDO("$vendor:dbname={$_ENV['DB_NAME']}", $_ENV['DB_USER'], $_ENV['DB_PASS']);
         } catch (PDOException $e) {
-            $vendor = 'mysql';
-            $adapter = new PDO("$vendor:dbname=$database", $user, $password);
+            $this->error("Could not connect to the specified database; please make sure it exists "
+                ." and define it in `.env` using DB_NAME, DB_USER and DB_PASS (and optionally DB_VENDOR).");
+            return;
         }
         $exists = $adapter->prepare(
             "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
@@ -82,7 +96,10 @@ class Project extends Recipe
         $this->delegate(Required::class, ['--output-dir=src', '--module=Home']);
         $this->delegate(Optional::class, array_merge(['--output-dir=src'], $modoptions));
         foreach ($modules as $module) {
-            $this->delegate(Module::class, [$module, '--output-dir=src', "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']);
+            $this->delegate(
+                Module::class,
+                [$module, '--output-dir=src', "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']
+            );
         }
         $this->delegate(BaseTemplate::class, [$project, '--output-dir=src']);
         $this->delegate(View::class, ['Home', '--output-dir=src', '--extends=\View', '--template=Home/template.html.twig']);
@@ -93,18 +110,7 @@ class Project extends Recipe
         $this->addNodePackages();
 
         if (isset($this->outputDir)) {
-            copy(dirname(__DIR__).'/static/Gruntfile.js', 'Gruntfile.js');
-            mkdir('grunt');
-            copy(dirname(__DIR__).'/static/grunt-aliases.js', 'grunt/aliases.js');
-            copy(dirname(__DIR__).'/static/grunt-ngtemplates.js', 'grunt/ngtemplates.js');
-            copy(dirname(__DIR__).'/static/grunt-browserify.js', 'grunt/browserify.js');
-            copy(dirname(__DIR__).'/static/grunt-sass.js', 'grunt/sass.js');
-            copy(dirname(__DIR__).'/static/grunt-postcss.js', 'grunt/postcss.js');
-            copy(dirname(__DIR__).'/static/grunt-concurrent.js', 'grunt/concurrent.js');
-            copy(dirname(__DIR__).'/static/grunt-copy.js', 'grunt/copy.js');
-            copy(dirname(__DIR__).'/static/grunt-shell.js', 'grunt/shell.js');
-            copy(dirname(__DIR__).'/static/grunt-uglify.js', 'grunt/uglify.js');
-            copy(dirname(__DIR__).'/static/grunt-watch.js', 'grunt/watch.js');
+            copy(dirname(__DIR__).'/static/webpack.mix.js', 'webpack.mix.js');
         }
     }
 
@@ -118,6 +124,7 @@ class Project extends Recipe
         $composer->addDependency('quibble/'.($vendor == 'pgsql' ? 'postgresql' : 'mysql'));
         $composer->addDependency('sensimedia/minimal');
         $composer->addDependency('sensimedia/fakr');
+        $composer->addDependency('sensimedia/supportery');
         $composer->addDependency('twig/extensions');
         $composer->addDependency('gentry/gentry', true);
         $composer->addDependency('gentry/toast', true);
@@ -125,6 +132,7 @@ class Project extends Recipe
         $composer->addDependency('toast/cache', true);
         $composer->addDependency('toast/unit', true);
         $composer->addDependency('sensimedia/codein', true);
+
         if ($this->api) {
             $composer->addDependency('monomelodies/monki');
             $composer->addDependency('sensimedia/api');
@@ -137,49 +145,21 @@ class Project extends Recipe
         $package = new Npm;
         foreach ([
             "laravel-mix",
-            "vue-template-compiler",
-            "babel-loader",
-            "browserify",
-            "grunt",
-            "grunt-browserify",
-            "grunt-contrib-sass",
-            "grunt-contrib-uglify",
-            "grunt-contrib-watch",
-            "@babel/core",
-            "@babel/plugin-transform-async-to-generator",
-            "@babel/plugin-transform-runtime",
-            "@babel/polyfill",
-            "@babel/preset-env",
-            "babelify",
-            "grunt-angular-templates",
-            "grunt-babel",
-            "grunt-browserify",
-            "grunt-sass",
-            "grunt-concurrent",
-            "grunt-contrib-copy",
-            "grunt-contrib-uglify",
-            "grunt-contrib-watch",
-            "grunt-shell",
             "jasmine-core",
             "karma",
             "karma-browserify",
             "karma-jasmine",
             "karma-phantomjs-launcher",
-            "load-grunt-config",
-            "load-grunt-tasks",
             "monad-cms",
             "monad-crud",
             "monad-navigation",
             "monad-theme-default",
             "node-sass",
-            "time-grunt",
-            "watchify",
-            "grunt-postcss",
-            "autoprefixer",
             "postcss-preset-env",
-            "precss",
-            "cssnano",
-            "md5"
+            "postcss",
+            "postcss-css-variables",
+            "postcss-nested",
+            "precss"
         ] as $name) {
             $package->addDependency($name, true);
         }
