@@ -10,6 +10,7 @@ use Codger\Lodger\{ Module, View };
 use Twig\{ Environment, Loader\FilesystemLoader };
 use PDO;
 use Dotenv\Dotenv;
+use stdClass;
 
 /**
  * Kick off an entire Sensi project. Database credentials are taken from
