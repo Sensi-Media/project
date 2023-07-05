@@ -8,8 +8,7 @@ use Twig\{ Environment, Loader\FilesystemLoader, TwigFilter };
 
 class HomeTemplate extends Recipe
 {
-    /** @var string */
-    protected $_template = 'home.html.twig';
+    protected string $_template = 'home.html.twig';
 
     public function __invoke() : void
     {
