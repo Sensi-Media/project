@@ -7,7 +7,7 @@ use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Config extends Recipe
 {
-    protected $_template = 'config.html.twig';
+    protected string $_template = 'config.html.twig';
 
     public function __invoke(string $project) : void
     {
