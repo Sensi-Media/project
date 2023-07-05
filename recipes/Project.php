@@ -24,7 +24,7 @@ class Project extends Recipe
      *
      * @var bool
      */
-    public $api = false;
+    public bool $api = false;
 
     public function __invoke() : void
     {
