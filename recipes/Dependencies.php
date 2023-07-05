@@ -8,14 +8,11 @@ use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Dependencies extends Recipe
 {
-    /** @var string */
-    public $vendor;
+    public string $vendor;
 
-    /** @var array */
-    public $module = [];
+    public array $module = [];
 
-    /** @var string */
-    protected $_template = 'dependencies.html.twig';
+    protected string $_template = 'dependencies.html.twig';
 
     public function __invoke(string $session) : void
     {
