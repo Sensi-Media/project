@@ -8,11 +8,9 @@ use Twig\{ Environment, Loader\FilesystemLoader, TwigFilter };
 
 class BaseTemplate extends Recipe
 {
-    /** @var array */
-    public $module = [];
+    public array $module = [];
 
-    /** @var string */
-    protected $_template = 'base.html.twig';
+    protected string $_template = 'base.html.twig';
 
     public function __invoke(string $project) : void
     {
