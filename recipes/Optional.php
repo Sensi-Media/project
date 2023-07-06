@@ -19,7 +19,7 @@ class Optional extends Recipe
             $module = Language::convert($module, Language::TYPE_PATH);
         });
         $this->set('modules', $this->module);
-        $this->output('src/optional.scss');
+        $this->output('optional.scss');
     }
 }
 
