@@ -66,9 +66,9 @@ $container->register(function (&$adapter) use ($container) : void {
     $env = $container->get('env');
     $port = $env->prod ? ";port=6432" : '';
     $adapter = new class(
-        "dbname={$env->db['name']}$port",
-        $env->db['user'],
-        $env->db['pass'],
+        "dbname={$env->db->name}$port",
+        $env->db->user,
+        $env->db->pass,
         [
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
