@@ -15,10 +15,10 @@ $router->when('/', null, function (Router $router) : void {
 {% for module in modules %}
     $router->when('/{{ module | normalize }}/', null, function (Router $router) : void {
         $router->when("/(?'id'\d+)/", '{{ module | normalize }}-details')
-            ->get(fn (int $id) : View => Factory::build({{ module }}\Detail\View::class, $id);
+            ->get(fn (int $id) : View => Factory::build({{ module }}\Detail\View::class, $id));
             });
         $router->when('/', '{{ module | normalize }}-list')
-            ->get(() => Factory::build({{ module }}\View::class));
+            ->get(fn () => Factory::build({{ module }}\View::class));
     });
 {% endfor %}
 {% if api %}
