@@ -17,7 +17,7 @@ class Dependencies extends Recipe
     public function __invoke(string $session) : void
     {
         $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
-        $this->output('src/dependencies.php');
+        $this->output('dependencies.php');
         if (isset($this->vendor)) {
             switch ($this->vendor) {
                 case 'mysql': $this->set('vendor', 'Mysql'); break;
