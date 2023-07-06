@@ -19,7 +19,7 @@ class Required extends Recipe
             $module = Language::convert($module, Language::TYPE_PATH);
         });
         $this->set('modules', $this->module);
-        $this->output('src/required.scss');
+        $this->output('required.scss');
     }
 }
 
