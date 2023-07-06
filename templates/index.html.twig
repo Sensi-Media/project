@@ -1,13 +1,8 @@
 <?php
 
-use Improse\Json;
 use Monolyth\Frontal\Controller;
 use Monolyth\Frontal\Exception;
-use User\Model;
-use Monolyth\Cesession\Session;
-use Monolyth\Cesession\Handler;
-use Zend\Diactoros\Response\SapiEmitter;
-use Monolyth\Disclosure\Container;
+use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Monolyth\Plumber\Normalize;
 
 $base = dirname(__DIR__);
