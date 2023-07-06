@@ -111,6 +111,7 @@ class Project extends Recipe
             );
             $this->delegate(Repository::class, [$module, '--output-dir=src']);
         }
+        $this->delegate(View::class, ['', '--output-dir=src', '--template=base.html.twig']);
         $this->delegate(BaseTemplate::class, [$project, '--output-dir=src']);
         $this->delegate(View::class, ['Home', '--output-dir=src', '--extends=\View', '--template=Home/template.html.twig']);
         $this->delegate(HomeTemplate::class, ['--output-dir=src']);
