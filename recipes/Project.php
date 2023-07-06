@@ -99,7 +99,15 @@ class Project extends Recipe
         foreach ($modules as $module) {
             $this->delegate(
                 Module::class,
-                [$module, '--output-dir=src', "--vendor=$vendor", "--database={$_ENV['DB_NAME']}", "--user=$user", "--pass=$password", '--ornament']
+                [
+                    $module,
+                    '--output-dir=src',
+                    "--vendor=$vendor",
+                    "--database={$_ENV['DB_NAME']}",
+                    "--user={$_ENV['DB_USER']}",
+                    "--pass={$_ENV['DB_PASS']}",
+                    '--ornament',
+                ]
             );
             $this->delegate(Repository::class, [$module, '--output-dir=src']);
         }
