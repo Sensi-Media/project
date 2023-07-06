@@ -19,7 +19,7 @@ class BaseTemplate extends Recipe
             return strtolower(str_replace('\\', '-', $module));
         }));
         $this->setTwigEnvironment($twig);
-        $this->output(getcwd()."/src/template.html.twig");
+        $this->output("template.html.twig");
         $this->set('project', $project);
         $this->set('modules', $this->module);
     }
