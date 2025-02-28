@@ -10,6 +10,7 @@ use Codger\Lodger\{ Module, View };
 use Twig\{ Environment, Loader\FilesystemLoader };
 use PDO;
 use Dotenv\Dotenv;
+use stdClass;
 
 /**
  * Kick off an entire Sensi project. Database credentials are taken from
@@ -56,7 +57,7 @@ class Project extends Recipe
         }
         file_put_contents(getcwd().'/package.json', json_encode($json, JSON_PRETTY_PRINT));
         if (!file_exists(getcwd().'/.env')) {
-            $this->error("Please setup you `.env` file first.\n");
+            $this->error("Please setup your `.env` file first.\n");
             return;
         }
         $dotenv = Dotenv::createImmutable(getcwd());
@@ -76,7 +77,7 @@ class Project extends Recipe
             "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES
                 WHERE ((TABLE_CATALOG = ? AND TABLE_SCHEMA = 'public') OR TABLE_SCHEMA = ?)
                     AND TABLE_TYPE = 'BASE TABLE'");
-        $exists->execute([$database, $database]);
+        $exists->execute([$_ENV['DB_NAME'], $_ENV['DB_NAME']]);
         while (false !== ($table = $exists->fetchColumn())) {
             if ($table == 'cesession_session') {
                 continue;
@@ -98,10 +99,19 @@ class Project extends Recipe
         foreach ($modules as $module) {
             $this->delegate(
                 Module::class,
-                [$module, '--output-dir=src', "--vendor=$vendor", "--database=$database", "--user=$user", "--pass=$password", '--ornament']
+                [
+                    $module,
+                    '--output-dir=src',
+                    "--vendor=$vendor",
+                    "--database={$_ENV['DB_NAME']}",
+                    "--user={$_ENV['DB_USER']}",
+                    "--pass={$_ENV['DB_PASS']}",
+                    '--ornament',
+                ]
             );
             $this->delegate(Repository::class, [$module, '--output-dir=src']);
         }
+        $this->delegate(View::class, ['', '--output-dir=src', '--template=base.html.twig']);
         $this->delegate(BaseTemplate::class, [$project, '--output-dir=src']);
         $this->delegate(View::class, ['Home', '--output-dir=src', '--extends=\View', '--template=Home/template.html.twig']);
         $this->delegate(HomeTemplate::class, ['--output-dir=src']);

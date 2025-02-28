@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "codger/generate",
-            "version": "0.10.2",
+            "version": "0.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/generate.git",
-                "reference": "9d97e2b3925bca290e0cf308a560baba9196ef43"
+                "reference": "b5f86b17bf4adc10f1b935889064e20371e7de2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/generate/zipball/9d97e2b3925bca290e0cf308a560baba9196ef43",
-                "reference": "9d97e2b3925bca290e0cf308a560baba9196ef43",
+                "url": "https://api.github.com/repos/codger-php/generate/zipball/b5f86b17bf4adc10f1b935889064e20371e7de2b",
+                "reference": "b5f86b17bf4adc10f1b935889064e20371e7de2b",
                 "shasum": ""
             },
             "require": {
@@ -51,9 +51,9 @@
             "description": "Code generator, base framework",
             "support": {
                 "issues": "https://github.com/codger-php/generate/issues",
-                "source": "https://github.com/codger-php/generate/tree/0.10.2"
+                "source": "https://github.com/codger-php/generate/tree/0.10.3"
             },
-            "time": "2023-07-05T11:58:07+00:00"
+            "time": "2023-07-06T13:42:26+00:00"
         },
         {
             "name": "codger/javascript",
@@ -100,16 +100,16 @@
         },
         {
             "name": "codger/php",
-            "version": "0.9.14",
+            "version": "0.9.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codger-php/php.git",
-                "reference": "ed35da899e130e7113e191707b2f2a7d0b470f69"
+                "reference": "9330fbc6a3c8cfb6f69aacb122a649932caa0046"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codger-php/php/zipball/ed35da899e130e7113e191707b2f2a7d0b470f69",
-                "reference": "ed35da899e130e7113e191707b2f2a7d0b470f69",
+                "url": "https://api.github.com/repos/codger-php/php/zipball/9330fbc6a3c8cfb6f69aacb122a649932caa0046",
+                "reference": "9330fbc6a3c8cfb6f69aacb122a649932caa0046",
                 "shasum": ""
             },
             "require": {
@@ -139,9 +139,9 @@
             "description": "Codger code generator, PHP templates",
             "support": {
                 "issues": "https://github.com/codger-php/php/issues",
-                "source": "https://github.com/codger-php/php/tree/0.9.14"
+                "source": "https://github.com/codger-php/php/tree/0.9.15"
             },
-            "time": "2023-07-05T14:15:03+00:00"
+            "time": "2023-07-06T13:43:59+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -955,16 +955,16 @@
         },
         {
             "name": "monolyth/lodger",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/monolyth-php/lodger.git",
-                "reference": "6e739ee6eea0c2eb77ed80b829b472b60afbbeb0"
+                "reference": "0dab3a21e444aa1f8e11634fdac7aace270c46e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/monolyth-php/lodger/zipball/6e739ee6eea0c2eb77ed80b829b472b60afbbeb0",
-                "reference": "6e739ee6eea0c2eb77ed80b829b472b60afbbeb0",
+                "url": "https://api.github.com/repos/monolyth-php/lodger/zipball/0dab3a21e444aa1f8e11634fdac7aace270c46e3",
+                "reference": "0dab3a21e444aa1f8e11634fdac7aace270c46e3",
                 "shasum": ""
             },
             "require": {
@@ -996,9 +996,9 @@
             "description": "Codger recipes for Monolyth components",
             "support": {
                 "issues": "https://github.com/monolyth-php/lodger/issues",
-                "source": "https://github.com/monolyth-php/lodger/tree/1.1.0"
+                "source": "https://github.com/monolyth-php/lodger/tree/1.1.1"
             },
-            "time": "2023-07-05T14:58:14+00:00"
+            "time": "2023-07-06T13:45:02+00:00"
         },
         {
             "name": "monomelodies/reflex",
@@ -1469,16 +1469,16 @@
         },
         {
             "name": "sensimedia/codger-sass",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sensi-Media/sass.git",
-                "reference": "798fa01359fa5179ef46ed4cff5bde6006316a4b"
+                "reference": "0484592ce59e7a6db07d09b4cdaabd6d073a43c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sensi-Media/sass/zipball/798fa01359fa5179ef46ed4cff5bde6006316a4b",
-                "reference": "798fa01359fa5179ef46ed4cff5bde6006316a4b",
+                "url": "https://api.github.com/repos/Sensi-Media/sass/zipball/0484592ce59e7a6db07d09b4cdaabd6d073a43c1",
+                "reference": "0484592ce59e7a6db07d09b4cdaabd6d073a43c1",
                 "shasum": ""
             },
             "require-dev": {
@@ -1503,9 +1503,9 @@
             "description": "SASS generation recipe",
             "support": {
                 "issues": "https://github.com/Sensi-Media/sass/issues",
-                "source": "https://github.com/Sensi-Media/sass/tree/master"
+                "source": "https://github.com/Sensi-Media/sass/tree/1.0.2"
             },
-            "time": "2019-12-29T08:12:38+00:00"
+            "time": "2023-07-05T15:37:41+00:00"
         },
         {
             "name": "symfony/console",

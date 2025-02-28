@@ -7,8 +7,7 @@ use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Index extends Recipe
 {
-    /** @var string */
-    protected $_template = 'index.html.twig';
+    protected string $_template = 'index.html.twig';
 
     public function __invoke() : void
     {

@@ -13,7 +13,7 @@ class Repository extends Klass
 {
     public string $table;
 
-    public function __invoke(string $name = null) : void
+    public function __invoke(?string $name = null) : void
     {
         if (!isset($name)) {
             $this->ask("What namespace shall we put this in?", function (string $answer) use (&$name) : void {

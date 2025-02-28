@@ -1,7 +1,7 @@
 <?php
 
 use Monolyth\Reroute\Router;
-use Monolyth\Disclosure\Container;
+use Monolyth\Disclosure\{ Container, Factory };
 {% if api %}
 use Monomelodies\Monki\{ Api, Handler\Crud };
 use Sensi\Api\Handler as ApiHandler;
@@ -11,15 +11,14 @@ $container = new Container;
 $env = $container->get('env');
 $router = new Router($env->host);
 $router->when('/', null, function (Router $router) : void {
-    $router->when('/', 'home')->get(Home\View::class);
+    $router->when('/', 'home')->get(fn () => Factory::build(Home\View::class));
 {% for module in modules %}
     $router->when('/{{ module | normalize }}/', null, function (Router $router) : void {
         $router->when("/(?'id'\d+)/", '{{ module | normalize }}-details')
-            ->get(function (int $id) : View {
-                return new {{ module }}\Detail\View($id);
+            ->get(fn (int $id) : View => Factory::build({{ module }}\Detail\View::class, $id));
             });
         $router->when('/', '{{ module | normalize }}-list')
-            ->get({{ module }}\View::class);
+            ->get(fn () => Factory::build({{ module }}\View::class));
     });
 {% endfor %}
 {% if api %}

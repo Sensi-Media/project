@@ -8,19 +8,16 @@ use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Dependencies extends Recipe
 {
-    /** @var string */
-    public $vendor;
+    public string $vendor;
 
-    /** @var array */
-    public $module = [];
+    public array $module = [];
 
-    /** @var string */
-    protected $_template = 'dependencies.html.twig';
+    protected string $_template = 'dependencies.html.twig';
 
     public function __invoke(string $session) : void
     {
         $this->setTwigEnvironment(new Environment(new FilesystemLoader(dirname(__DIR__).'/templates')));
-        $this->output('src/dependencies.php');
+        $this->output('dependencies.php');
         if (isset($this->vendor)) {
             switch ($this->vendor) {
                 case 'mysql': $this->set('vendor', 'Mysql'); break;

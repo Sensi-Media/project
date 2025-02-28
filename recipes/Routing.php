@@ -7,14 +7,11 @@ use Twig\{ Environment, Loader\FilesystemLoader, TwigFilter };
 
 class Routing extends Recipe
 {
-    /** @var array */
-    public $module = [];
+    public array $module = [];
 
-    /** @var bool */
-    public $api = false;
+    public bool $api = false;
 
-    /** @var string */
-    protected $_template = 'routing.html.twig';
+    protected string $_template = 'routing.html.twig';
 
     public function __invoke() : void
     {

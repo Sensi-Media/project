@@ -8,11 +8,9 @@ use Twig\{ Environment, Loader\FilesystemLoader };
 
 class Required extends Recipe
 {
-    /** @var array */
-    public $module = [];
+    public array $module = [];
 
-    /** @var string */
-    protected $_template = 'sass.html.twig';
+    protected string $_template = 'sass.html.twig';
 
     public function __invoke() : void
     {
@@ -21,7 +19,7 @@ class Required extends Recipe
             $module = Language::convert($module, Language::TYPE_PATH);
         });
         $this->set('modules', $this->module);
-        $this->output('src/required.scss');
+        $this->output('required.scss');
     }
 }
 
